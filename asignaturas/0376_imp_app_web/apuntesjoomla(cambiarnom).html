@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuntes Joomla</title>
+</head>
+<body>
+    <header>
+        <h1 id="encabezado">Apuntes de Joomla</h1>
+    </header>
+
+    <section>
+        <h2>Índice</h2>
+        <ol>
+            <li><a href="#introduccion">Introducción a Joomla</a></li>
+            <li><a href="#backup">Backups en Joomla</a></li>
+            <li><a href="#tipouser">Tipos de Usuarios</a></li>
+            <li><a href="#">Tema nuevo</a></li>
+            <li><a href="#">Tema nuevo</a></li>
+            <li><a href="#">Tema nuevo</a></li>
+            <li><a href="#">Tema nuevo</a></li>
+        </ol>
+    </section>
+
+    <section id="introduccion">
+        <h2>1. Introducción a Joomla</h2>
+        <p>Contenido relacionado con la introducción a Joomla.</p>
+    </section>
+
+    <section id="backup">
+        <h2>2. Backups en Joomla</h2>
+        <p>Contenido sobre cómo realizar backups en Joomla.</p>
+    </section>
+
+    <section id="tipouser">
+        <h2>3. Tipos de Usuarios</h2>
+
+        <h3>Front-End</h3>
+        <ul>
+            <li><strong>Registrados:</strong> Estos usuarios tienen la capacidad de ver los artículos, pero no pueden interactuar con ellos de ninguna otra forma.</li>
+            <li><strong>Author:</strong> Los usuarios con este rol pueden crear nuevos artículos y modificar los artículos que han publicado y son de su propiedad, pero no los de otros.</li>
+            <li><strong>Editor:</strong> Los usuarios con este rol tienen la capacidad de modificar cualquier artículo.</li>
+            <li><strong>Publisher:</strong> Los usuarios con este rol pueden cambiar parámetros clave de cualquier artículo, como el estado de publicación (por ejemplo, cambiar de "publicado" a "no publicado") o modificar su categoría.</li>
+        </ul>
+
+        <h3>Back-End</h3>
+        <ul>
+            <li><strong>Superadmin (el Dios de la web):</strong> Es el usuario con acceso completo y control total sobre el sistema. Este rol tiene autoridad absoluta y puede gestionar todos los aspectos del sistema.</li>
+            <li><strong>Administrador:</strong> Los administradores gestionan los usuarios, pero no pueden modificar ni al Superadmin ni a otros administradores.</li>
+            <li><strong>Gestor:</strong> Los gestores tienen acceso para gestionar el contenido y las tareas dentro del sistema, pero no poseen control total sobre usuarios o configuraciones de alto nivel.</li>
+        </ul>
+
+        <h3>Ejemplo de Creación de Usuarios, Grupo, Nivel de Acceso y Menú</h3>
+        <p>En este ejemplo, creamos un usuario, un grupo, un nivel de acceso y un menú oculto asignado específicamente a los usuarios de ese grupo:</p>
+        <ul>
+            <li><strong>Usuario:</strong> Se crea un usuario llamado "Autor 1".</li>
+            <li><strong>Grupo:</strong> El usuario "Autor 1" pertenece al grupo "AutorASIX1".</li>
+            <li><strong>Nivel de Acceso:</strong> El nivel de acceso asignado a este grupo es el correspondiente al grupo "AutorASIX1", lo que determina que el usuario tenga permisos limitados según las funciones definidas para ese grupo.</li>
+            <li><strong>Menú:</strong> Se crea un nuevo menú oculto (por ejemplo, una página o sección del sistema) al cual solo pueden acceder los usuarios del grupo "AutorASIX1". Este menú estará oculto para otros grupos o usuarios sin el nivel de acceso adecuado.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <a href="#encabezado">Ir al encabezado</a>
+    </footer>
+</body>
+</html>
