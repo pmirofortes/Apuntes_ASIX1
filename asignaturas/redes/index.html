@@ -6,15 +6,91 @@
     <title>Apuntes Redes</title>
 </head>
 <body>
-    <h1>Apuntes Redes</h1>
-    <ol>
-    <li><h2></h2></li>
-    <li><h2></h2></li>
-    <li><h2></h2></li>
-    <li><h2></h2></li>
-    <li><h2></h2></li>
-    <li><h2></h2></li>
-    <li><h2></h2></li>
-</ol>
+    <header>
+        <h1>Apuntes Redes</h1>
+    </header>
+
+    <nav>
+        <ol>
+            <li><a href="#seccion-1">1. Introducción</a></li>
+            <li><a href="#seccion-2">2. Elementos de Red</a></li>
+            <li><a href="#seccion-3">3. Tópico 3</a></li>
+            <li><a href="#seccion-4">4. Tópico 4</a></li>
+        </ol>
+    </nav>
+
+    <main>
+        <section id="seccion-1">
+            <h2>1. Introducción</h2>
+            <p>Contenido de la introducción.</p>
+        </section>
+
+        <section id="seccion-2">
+            <h2>2. Elementos de Red</h2>
+            
+            <article>
+                <h3>2.1. Elementos de la capa física</h3>
+                
+                <h4>Cableado</h4>
+                <ul>
+                    <li><strong>UTP</strong>
+                        <p>Consta de 4 pares, cada par trenzado y sin protección frente a interferencias (EMI, RFI). Se trenzan para anular los campos magnéticos y evitar el crosstalk (interferencia producida por un cable cercano).</p>
+                        <ul>
+                            <li><strong>Ventajas:</strong> Económico, flexible.</li>
+                            <li><strong>Inconvenientes:</strong> No está protegido, sufre de atenuación.</li>
+                        </ul>
+                    </li>
+                    <li><strong>FTP</strong>
+                        <p>Consta de 4 pares con protección adicional.</p>
+                    </li>
+                    <li><strong>STP</strong>
+                        <p>Similar al FTP, pero con protección más robusta contra interferencias.</p>
+                    </li>
+                </ul>
+
+                <h4>Radioenlaces</h4>
+                <ul>
+                    <li><strong>WiFi (IEEE 802.11) o WLAN</strong>
+                        <p>Permite conexión inalámbrica entre dispositivos y un Access Point o router.</p>
+                        <p><strong>Protocolo:</strong> CSMA/CA.</p>
+                        <p>El área de cobertura depende de la potencia de emisión y la ubicación del dispositivo emisor.</p>
+                        <h5>Topologías WiFi:</h5>
+                        <ul>
+                            <li>IBSS (Independent Basic Service Set)</li>
+                            <li>BSS (Basic Service Set)</li>
+                            <li>ESS (Extended Service Set)</li>
+                            <li>Repetidor Wireless</li>
+                        </ul>
+                    </li>
+                    <li><strong>Bluetooth o WPAN (IEEE 802.15)</strong>
+                        <p>Conexión inalámbrica con un alcance máximo de 10 m. Trabaja en la banda de 2.4 GHz.</p>
+                    </li>
+                    <li><strong>WiMAX (IEEE 802.16)</strong>
+                        <p>Comunicación por radioenlace de microondas, ideal para zonas rurales. Alcance: 50 a 100 km.</p>
+                        <ul>
+                            <li><strong>Ventajas:</strong> Sortear topografía compleja.</li>
+                            <li><strong>Inconvenientes:</strong> Afectado por fenómenos climáticos adversos.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Satélite</strong>
+                        <ul>
+                            <li><strong>Ventajas:</strong> Cobertura amplia, ancho de banda elevado, coste independiente de la distancia.</li>
+                            <li><strong>Inconvenientes:</strong> Costoso, afectado por fenómenos atmosféricos.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="seccion-3">
+            <h2>3. Tópico 3</h2>
+            <p>Contenido del tópico 3.</p>
+        </section>
+
+        <section id="seccion-4">
+            <h2>4. Tópico 4</h2>
+            <p>Contenido del tópico 4.</p>
+        </section>
+    </main>
 </body>
 </html>
