@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasos para trabajar con MySQL en WAMP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        code {
+            color: #d6336c;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pasos para trabajar con MySQL en WAMP</h1>
+
+        <h2>1. Abrir el servidor en WAMP</h2>
+        <ul>
+            <li>Asegúrate de que WAMP esté ejecutándose en tu computadora.</li>
+        </ul>
+
+        <h2>2. Acceder a MySQL</h2>
+        <ul>
+            <li>En el panel de WAMP, haz clic en el ícono de WAMP (en la bandeja del sistema).</li>
+            <li>Selecciona <strong>MySQL</strong> y luego <strong>MySQL Console</strong> para abrir la consola de MySQL.</li>
+        </ul>
+
+        <h2>3. Mostrar las bases de datos existentes</h2>
+        <pre><code>show databases;</code></pre>
+
+        <h2>4. Crear una nueva base de datos</h2>
+        <pre><code>create database `bd_name`;</code></pre>
+
+        <h2>5. Tipos de datos</h2>
+        <ul>
+            <li><code>char(X)</code>: Define un campo de texto de longitud fija de X caracteres.</li>
+            <li><code>varchar(X)</code>: Define un campo de texto de longitud variable con un máximo de X caracteres.</li>
+            <li><code>date</code>: Define un campo de fecha en formato <code>YYYY-MM-DD</code>.</li>
+            <li><code>int(X)</code>: Define un campo de número entero de X caracteres.</li>
+            <li><code>decimal(XX,YY)</code>: Define un campo de número con decimales. XX dígitos en total, de los cuales YY son decimales.</li>
+            <li><code>boolean</code>: Define un campo que puede tener dos valores posibles: <code>TRUE</code> o <code>FALSE</code>.</li>
+            <li><code>datetime</code>: Define un campo de fecha y hora en formato <code>YYYY-MM-DD HH:MM:SS</code>.</li>
+        </ul>
+
+        <h2>6. Seleccionar la base de datos</h2>
+        <pre><code>use `bd_name`;</code></pre>
+
+        <h2>7. Crear una tabla</h2>
+        <pre><code>create table `tbl_provincia` (
+    codi_prov char(2) primary key,
+    nom_prov varchar(30) not null,
+    numhab_prov int(7) null
+);</code></pre>
+
+        <h2>8. Definir un campo autoincremental</h2>
+        <p>Para definir un campo que se incremente automáticamente en cada nuevo registro, usamos la palabra clave <code>AUTO_INCREMENT</code>. Ejemplo:</p>
+        <pre><code>create table `tbl_usuario` (
+    id_usuario int auto_increment primary key,
+    nombre varchar(50) not null
+);</code></pre>
+
+        <h2>9. Mostrar las tablas de la base de datos</h2>
+        <pre><code>show tables;</code></pre>
+
+        <h2>10. Describir la estructura de la tabla</h2>
+        <pre><code>describe `tbl_provincia`;</code></pre>
+
+        <h2>11. Eliminar una tabla</h2>
+        <pre><code>drop table `tbl_provincia`;</code></pre>
+
+        <h2>12. Eliminar una base de datos</h2>
+        <pre><code>drop database `bd_name`;</code></pre>
+
+        <h2>13. Modificar una tabla para agregar una clave foránea</h2>
+        <pre><code>alter table `tbl_municipi`
+add constraint `fk_mun_prov` foreign key (`codi_prov`)
+references `tbl_provincia`(`codi_prov`);</code></pre>
+    </div>
+</body>
+</html>
