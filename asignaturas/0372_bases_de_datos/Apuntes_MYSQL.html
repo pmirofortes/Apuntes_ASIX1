@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasos para trabajar con MySQL en WAMP</title>
+    <title>Apuntes de MySQL en WAMP</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,69 +41,86 @@
 </head>
 <body>
     <div class="container">
-        <h1>Pasos para trabajar con MySQL en WAMP</h1>
+        <h1>Apuntes de MySQL en WAMP</h1>
 
-        <h2>1. Abrir el servidor en WAMP</h2>
+        <h2>General</h2>
         <ul>
-            <li>Asegúrate de que WAMP esté ejecutándose en tu computadora.</li>
+            <li>Asegúrate de que WAMP esté ejecutándose antes de trabajar con MySQL.</li>
+            <li>Accede a MySQL a través del panel de WAMP seleccionando <strong>MySQL Console</strong>.</li>
         </ul>
 
-        <h2>2. Acceder a MySQL</h2>
+        <h2>Comandos básicos</h2>
         <ul>
-            <li>En el panel de WAMP, haz clic en el ícono de WAMP (en la bandeja del sistema).</li>
-            <li>Selecciona <strong>MySQL</strong> y luego <strong>MySQL Console</strong> para abrir la consola de MySQL.</li>
+            <li>Mostrar bases de datos existentes:
+                <pre><code>show databases;</code></pre>
+            </li>
+            <li>Seleccionar una base de datos:
+                <pre><code>use `bd_name`;</code></pre>
+            </li>
+            <li>Mostrar tablas de una base de datos:
+                <pre><code>show tables;</code></pre>
+            </li>
+            <li>Describir la estructura de una tabla:
+                <pre><code>describe `tbl_nombre`;</code></pre>
+            </li>
         </ul>
 
-        <h2>3. Mostrar las bases de datos existentes</h2>
-        <pre><code>show databases;</code></pre>
-
-        <h2>4. Crear una nueva base de datos</h2>
-        <pre><code>create database `bd_name`;</code></pre>
-
-        <h2>5. Tipos de datos</h2>
+        <h2>Creación</h2>
         <ul>
-            <li><code>char(X)</code>: Define un campo de texto de longitud fija de X caracteres.</li>
-            <li><code>varchar(X)</code>: Define un campo de texto de longitud variable con un máximo de X caracteres.</li>
-            <li><code>date</code>: Define un campo de fecha en formato <code>YYYY-MM-DD</code>.</li>
-            <li><code>int(X)</code>: Define un campo de número entero de X caracteres.</li>
-            <li><code>decimal(XX,YY)</code>: Define un campo de número con decimales. XX dígitos en total, de los cuales YY son decimales.</li>
-            <li><code>boolean</code>: Define un campo que puede tener dos valores posibles: <code>TRUE</code> o <code>FALSE</code>.</li>
-            <li><code>datetime</code>: Define un campo de fecha y hora en formato <code>YYYY-MM-DD HH:MM:SS</code>.</li>
-        </ul>
-
-        <h2>6. Seleccionar la base de datos</h2>
-        <pre><code>use `bd_name`;</code></pre>
-
-        <h2>7. Crear una tabla</h2>
-        <pre><code>create table `tbl_provincia` (
+            <li>Crear una base de datos:
+                <pre><code>create database `bd_name`;</code></pre>
+            </li>
+            <li>Crear una tabla:
+                <pre><code>create table `tbl_provincia` (
     codi_prov char(2) primary key,
     nom_prov varchar(30) not null,
     numhab_prov int(7) null
 );</code></pre>
+            </li>
+        </ul>
 
-        <h2>8. Definir un campo autoincremental</h2>
-        <p>Para definir un campo que se incremente automáticamente en cada nuevo registro, usamos la palabra clave <code>AUTO_INCREMENT</code>. Ejemplo:</p>
-        <pre><code>create table `tbl_usuario` (
+        <h2>Tipos de datos</h2>
+        <ul>
+            <li><code>char(X)</code>: Texto de longitud fija (X caracteres).</li>
+            <li><code>varchar(X)</code>: Texto de longitud variable (máx. X caracteres).</li>
+            <li><code>date</code>: Fecha en formato <code>YYYY-MM-DD</code>.</li>
+            <li><code>int(X)</code>: Número entero de X dígitos.</li>
+            <li><code>decimal(XX,YY)</code>: Número con decimales, donde XX son dígitos totales y YY son decimales.</li>
+            <li><code>boolean</code>: Valores <code>TRUE</code> o <code>FALSE</code>.</li>
+            <li><code>datetime</code>: Fecha y hora en formato <code>YYYY-MM-DD HH:MM:SS</code>.</li>
+        </ul>
+
+        <h2>Modificaciones</h2>
+        <ul>
+            <li>Añadir un atributo (columna) a una tabla existente:
+                <pre><code>alter table `tbl_nombre`
+add column nueva_columna tipo_dato [restricciones];</code></pre>
+                Ejemplo:
+                <pre><code>alter table `tbl_usuario`
+add column edad int not null;</code></pre>
+            </li>
+            <li>Definir un atributo autoincremental:
+                <pre><code>create table `tbl_usuario` (
     id_usuario int auto_increment primary key,
     nombre varchar(50) not null
 );</code></pre>
+            </li>
+            <li>Agregar una clave foránea a una tabla:
+                <pre><code>alter table `tbl_municipi`
+add constraint `fk_mun_prov` foreign key (`codi_prov`)
+references `tbl_provincia`(`codi_prov`);</code></pre>
+            </li>
+        </ul>
 
-        <h2>9. Mostrar las tablas de la base de datos</h2>
-        <pre><code>show tables;</code></pre>
-
-        <h2>10. Describir la estructura de la tabla</h2>
-        <pre><code>describe `tbl_provincia`;</code></pre>
-
-        <h2>11. Eliminar una tabla</h2>
-        <pre><code>drop table `tbl_provincia`;</code></pre>
-
-        <h2>12. Eliminar una base de datos</h2>
-        <pre><code>drop database `bd_name`;</code></pre>
-
-        <h2>13. Modificar una tabla para agregar una clave foránea</h2>
-        <pre><code>alter table `tbl_debil`
-add constraint `fk_debil_fuerte` foreign key (`fk_debil`)
-references `tbl_fuerte`(`pk_fuerte`);</code></pre>
+        <h2>Eliminación</h2>
+        <ul>
+            <li>Eliminar una tabla:
+                <pre><code>drop table `tbl_nombre`;</code></pre>
+            </li>
+            <li>Eliminar una base de datos:
+                <pre><code>drop database `bd_name`;</code></pre>
+            </li>
+        </ul>
     </div>
 </body>
 </html>
