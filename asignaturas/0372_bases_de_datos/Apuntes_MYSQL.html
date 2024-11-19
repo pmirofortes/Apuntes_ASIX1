@@ -101,9 +101,9 @@
         <pre><code>drop database `bd_name`;</code></pre>
 
         <h2>13. Modificar una tabla para agregar una clave foránea</h2>
-        <pre><code>alter table `tbl_municipi`
-add constraint `fk_mun_prov` foreign key (`codi_prov`)
-references `tbl_provincia`(`codi_prov`);</code></pre>
+        <pre><code>alter table `tbl_debil`
+add constraint `fk_debil_fuerte` foreign key (`fk_debil`)
+references `tbl_fuerte`(`pk_fuerte`);</code></pre>
     </div>
 </body>
 </html>
