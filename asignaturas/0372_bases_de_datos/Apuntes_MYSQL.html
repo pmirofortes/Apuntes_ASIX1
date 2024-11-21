@@ -106,9 +106,9 @@ add column edad int not null;</code></pre>
 );</code></pre>
             </li>
             <li>Agregar una clave foránea a una tabla:
-                <pre><code>alter table `tbl_municipi`
-add constraint `fk_mun_prov` foreign key (`codi_prov`)
-references `tbl_provincia`(`codi_prov`);</code></pre>
+                <pre><code>alter table `tbl_debil`
+add constraint `fk_debil_fuerte` foreign key (`fk_debil`)
+references `tbl_fuerte`(`pk_fuerte`);</code></pre>
             </li>
         </ul>
 
