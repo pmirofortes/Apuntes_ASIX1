@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice de Implantación de Sistemas Operativos - ASIX</title>
+    <title>Índice de Redes - ASIX</title>
     <link rel="icon" href="../../Icons/redes.ico">
     <style>
         body {
@@ -103,198 +103,18 @@
 <body>
     <header>
         <h1>Índice de Redes - ASIX</h1>
-        <nav>
-            <a href="#indice" class="active">Índice</a>
-            <a href="#tema1">Introducción</a>
-            <a href="#tema2">Elementos de Red</a>
-            <a href="#tema3">Tema3</a>
-            <a href="#tema4">Tema4</a>
-        </nav>
+        <a href="https://www.netacad.com/es/dashboard">Enlace a CISCO</a>
     </header>
-
     <section id="indice">
-        <h2><br>Índice de Temas de Redes</h2>
+        <h2>Índice de Temas de Redes</h2>
         <ol>
-            <li><a href="#tema1">Introducción</a></li>
-            <li><a href="#tema2">Elementos de Red</a></li>
+            <li><a href="../redes/Introduccion.html">Introducción</a></li>
+            <li><a href="../redes/Elementos_red.html">Elementos de Red</a></li>
             <li><a href="#tema3">Tema3</a></li>
             <li><a href="#tema4">Tema4</a></li>
+            <br>
+            
         </ol>
     </section>
-
-    <section id="tema1">
-        <h2>1. Introducción</h2>
-        <article>
-        <h3>1.1. Elementos que intervienen en la comunicación</h3>
-        <h4>Medios de transmisión:</h4>
-        <ul>
-        <li>Cable (Electricidad)</li>
-        <ul>
-            <li>Coaxial</li>
-            <li>UTP</li>
-            <li>FTP</li>
-            <li>STP</li>
-            <li>Par telefonico</li>
-        </ul>
-        <li>Radioenlace (Ondas electromagneticas)</li>
-        <ul>
-            <li>Wifi</li>
-            <li>Bluetooth</li>
-            <li>NFC</li>
-            <li>Satélite</li>
-            <li>WIMAX</li>
-        </ul>
-        <li>Fibra optica (Luz)</li>
-        </ul>
-        <h4>Clasificación de transmisiones:</h4>
-        <ul>
-            <li><strong>Serie</strong>. Viaje de 1 bit detras de otro</li>
-            <li><strong>Paralelo</strong>. Pueden viajar más bits al mismo tiempo</li>
-        </ul>
-        <ul>
-            <li><strong>Simplex</strong>. Transmisión en 1 sentido</li>
-            <li><strong>Half-duplex</strong>. Transmisión en los 2 sentidos pero no a la vez</li>
-            <li><strong>Full-duplex</strong>. Transmisión en los 2 sentidos a la vez</li>
-        </ul>
-        <ul>
-            <li><strong>Banda base</strong>. Sin modificación</li>
-            <li><strong>Modulados</strong>. Se modifica una caracteristica de la señal portadora para transmitir información. Amplitud, duración del pulso y posición del pulso</li>
-        </ul>
-        </article>
-        <article>
-            <h3>1.2. Arquitectura de red</h3>
-            <h4>1.2.1. Caracteristicas deseables en las redes</h4>
-            <ul>
-            <li>Velocidad de transmisión elevada</li>
-            <li>Fiabilidad</li>
-            <li>Quality Of Service</li>
-            <li>Escalabilidad</li>
-            <li>Seguridad <strong>Fisica</strong></li>
-                <ul>
-                    <li><strong>Acceso</strong>. Vigilancia, acceso diferente, personal de seguridad, biometria...</li>
-                    <li><strong>Ubicación</strong>. Alejado de tuberías de agua y lineas de tensión, ubicada en una planta intermedia.</li>
-                    <li><strong>Protacción contra subidas y bajadas de tensión</strong> (Sistema alimentación ininterrumpido)</li>
-                    <li><strong>Temperatura</strong>. Ventilación, protección contra humedad e incendios</li>
-                </ul>
-            <li>Seguridad <strong>Logica</strong></li>
-                <ul>
-                    <li>Copias de seguridad</li>
-                    <li>Claves de acceso (encriptación)</li>
-                    <li>Firewall (evitar/filtrar el trafico)</li>
-                    <li>Passwords</li>
-                    <li>Gestión de permisos de usuarios</li>
-                </ul>
-            </ul>
-
-        </article>
-        <article>
-            <h4>1.2.2. Clasificación de las redes</h4>
-            <ul>
-                <li>Convergente vs no convergentes</li>
-            </ul>
-
-
-        </article>
-        <a href="#indice">Enlace al titulo</a>
-    </section>
-
-    <section id="tema2">
-        <h2>2. Elementos de Red</h2>
-        <article>
-            <h3>2.1. Elementos de la capa física</h3>
-            <h4>Cableado</h4>
-            <ul>
-                <li><strong>UTP (Unshielded Twisted Pair)</strong>
-                    <p>Consta de 4 pares, cada par trenzado y sin protección frente a interferencias (EMI, RFI). Se trenzan para anular los campos magnéticos y evitar el crosstalk (interferencia producida por un cable cercano).<strong>Conector RJ45</strong></p>
-                    <ul>
-                        <li><strong>Ventajas:</strong> Económico, flexible.</li>
-                        <li><strong>Inconvenientes:</strong> No está protegido, sufre de atenuación (100m).</li>
-                    </ul>
-                </li>
-                <li><strong>FTP (Foiled Twisted Pair)</strong>
-                    <p>Consta de 4 pares trenzados y el cable protegido por un papel de aluminio. <strong>Conector RJ49</strong></p>
-                    <ul>
-                        <li><strong>Ventajas:</strong> Protegido frente interferencias <strong>EXTERNAS</strong>.</li>
-                        <li><strong>Inconvenientes:</strong> Menos económico que el UTP, menos flexible que el UTP, sufre de atenuación (100m).</li>
-                    </ul>
-                </li>
-                <li><strong>STP (Shielded Twisted Pair)</strong>
-                    <p>Consta de 4 pares, cada par trenzado y cada par protegido. <strong>Conector RJ49</strong></p>
-                    <ul>
-                        <li><strong>Ventajas:</strong> Protegido frente interferencias <strong>EXTERNAS</strong> e <strong>INTERNAS</strong> .</li>
-                        <li><strong>Inconvenientes:</strong> Menos económico que el FTP, menos flexible que el FTP, sufre de atenuación (100m).</li>
-                    </ul>
-                </li>
-                <li><strong>Tipos de conexiones</strong>
-                    <ul>
-                        <li><strong>Recto o Straight through</strong></li>
-                        (imagen conexion recta) <br>
-                        PC ----> Switch <br>
-                        Switch ----> Router
-                        <li><strong>Rollover o transpuesto</strong></li>
-                        (imagen transpuesto) <br>
-                        PC (serie) ----> Switch (consola) <br>
-                        Switch (serie) ----> Router (consola)
-                        <li><strong>Cruzado o crossover</strong></li>
-                        (imagen cruzado) <br>
-                        Router ----> Router <br>
-                        PC ----> PC <br>
-                        Switch ----> Switch <br>
-                        PC ----> Router 
-                    </ul>
-                </li>
-            </ul>
-            <h4>Radioenlaces</h4>
-            <ul>
-                <li><strong>WiFi (IEEE 802.11) o WLAN</strong>
-                    <p>Permite conexión inalámbrica entre dispositivos y un Access Point o router.</p>
-                    <p><strong>Protocolo:</strong> CSMA/CA.</p>
-                    <p>El área de cobertura depende de la potencia de emisión y la ubicación del dispositivo emisor.</p>
-                    <h5>Topologías WiFi:</h5>
-                    <ul>
-                        <li>IBSS (Independent Basic Service Set)</li>
-                        (imagen ibss)
-                        <li>BSS (Basic Service Set)</li>
-                        (imagen bss)
-                        <li>ESS (Extended Service Set)</li>
-                        (imagen ess)
-                        <li>Repetidor Wireless</li>
-                        (imagen Repetidor)
-                    </ul>
-                </li>
-                <li><strong>Bluetooth o WPAN (IEEE 802.15)</strong>
-                    <p>Conexión inalámbrica con un alcance máximo de 10 m. Trabaja en la banda de 2.4 GHz.</p>
-                </li>
-                <li><strong>WiMAX (IEEE 802.16)</strong>
-                    <p>Comunicación por radioenlace de microondas, ideal para zonas rurales. Alcance: 50 a 100 km.</p>
-                    <ul>
-                        <li><strong>Ventajas:</strong> Sortear topografía compleja.</li>
-                        <li><strong>Inconvenientes:</strong> Afectado por fenómenos climáticos adversos.</li>
-                    </ul>
-                </li>
-                <li><strong>Satélite</strong>
-                    <ul>
-                        <li><strong>Ventajas:</strong> Cobertura amplia, ancho de banda elevado, coste independiente de la distancia.</li>
-                        <li><strong>Inconvenientes:</strong> Costoso, afectado por fenómenos atmosféricos.</li>
-                    </ul>
-                </li>
-            </ul>
-        </article>
-        <a href="#indice">Enlace al titulo</a>
-    </section>
-
-    <section id="seccion-3">
-        <h2>3. Tópico 3</h2>
-        <p>Contenido del tópico 3.</p>
-        <a href="#indice">Enlace al titulo</a>
-    </section>
-
-    <section id="seccion-4">
-        <h2>4. Tópico 4</h2>
-        <p>Contenido del tópico 4.</p>
-        <a href="#indice">Enlace al titulo</a>
-    </section>
-    
-
 </body>
 </html>

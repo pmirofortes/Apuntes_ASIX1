@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays en PHP - Tema 3</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #00A86B;
+        }
+
+        header {
+            background-color: #00A86B;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #00A86B;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        section {
+            margin-top: 120px;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #00A86B;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-x: auto;
+            color: #333;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Arrays en PHP - Tema 3</h1>
+    </header>
+
+    <nav>
+        <h2>Índice</h2>
+        <ul>
+            <li><a href="#una-dimension">Una Dimensión</a></li>
+            <li><a href="#crear-array">Crear un Array</a></li>
+            <li><a href="#anadir-elementos">Añadir Elementos</a></li>
+            <li><a href="#modificar-borrar">Modificar y Borrar</a></li>
+            <li><a href="#strings">Jugando con Strings</a></li>
+            <li><a href="#diccionario">Diccionario</a></li>
+            <li><a href="#dos-dimensiones">Dos Dimensiones</a></li>
+        </ul>
+    </nav>
+
+    <section id="una-dimension">
+        <h2>Una Dimensión</h2>
+        <p>Un <strong>array</strong> es un mapa ordenado donde los datos tienen una clave (<em>key</em>) y valores (<em>values</em>). Por ejemplo:</p>
+        <pre><code>$semana = [
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+    'Domingo'
+];</code></pre>
+        <p>Para leer elementos:</p>
+        <pre><code>echo $semana[0]; // Lunes
+echo $semana[3]; // Jueves</code></pre>
+    </section>
+
+    <section id="crear-array">
+        <h3>Crear un Array</h3>
+        <p>Para declarar un array vacío:</p>
+        <pre><code>$planetas = [];
+$planetas = array();</code></pre>
+    </section>
+
+    <section id="anadir-elementos">
+        <h3>Añadir Elementos</h3>
+        <pre><code>$planetas[] = 'Marte';
+$planetas[] = 'Tierra';</code></pre>
+    </section>
+
+    <section id="modificar-borrar">
+        <h3>Modificar y Borrar</h3>
+        <p>Para cambiar un valor:</p>
+        <pre><code>$planetas[2] = 'Saturno';</code></pre>
+        <p>Para borrar un elemento:</p>
+        <pre><code>unset($planetas[1]);</code></pre>
+    </section>
+
+    <section id="strings">
+        <h2>Jugando con Strings</h2>
+        <p>Los strings pueden manipularse como arrays:</p>
+        <pre><code>$palabra = 'abcdef';
+echo $palabra[2]; // c</code></pre>
+    </section>
+
+    <section id="diccionario">
+        <h2>Diccionario</h2>
+        <p>Las claves pueden definirse manualmente:</p>
+        <pre><code>$empleados = [
+    'Juan' => 34,
+    'Luisa' => 56
+];
+echo $empleados['Luisa']; // 56</code></pre>
+    </section>
+
+    <section id="dos-dimensiones">
+        <h2>Dos Dimensiones</h2>
+        <p>Un array puede contener otros arrays:</p>
+        <pre><code>$zara = [
+    123 => [
+        'nombre' => 'Camisa a cuadros',
+        'precio' => 29.95,
+        'sexo' => 'Hombre'
+    ],
+    234 => [
+        'nombre' => 'Falda manga',
+        'precio' => 19.95,
+        'sexo' => 'Mujer'
+    ]
+];
+var_dump($zara);
+echo $zara[123]['nombre']; // Camisa a cuadros</code></pre>
+    </section>
+</body>
+</html>
