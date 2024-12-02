@@ -102,7 +102,6 @@
 
 </head>
 <body>
-    <section id="tema2">
         <h2>2. Elementos de Red</h2>
         <article>
             <h3>2.1. Elementos de la capa física</h3>
@@ -261,13 +260,13 @@
                         <strong>Conectores:</strong>
                         <ul>
                             <li>
-                                Straight Tip (ST). El conector es de bayoneta/enroscable.
+                                Straight Tip (ST). El conector es de bayoneta/enroscable. (imagen)
                             </li>
                             <li>
-                                Suscriptor Conector (SC). El conector es cuadrado, es LAN y WAN
+                                Suscriptor Conector (SC). El conector es cuadrado, es LAN y WAN (imagen)
                             </li>
                             <li>
-                                Lucent Conector (LC) simplex y duplex
+                                Lucent Conector (LC) simplex y duplex (imagen)
                             </li>
                         </ul>
                     </li>
@@ -282,18 +281,99 @@
             Es un dispositivo que organiza el cableado de una red su principal función es actuar como un punto de conexión central para cables que provienen de diferentes dispositivos (como ordenadores, impresoras o cámaras de red) y los conecta con switches, routers u otros equipos de red.
             <h4>Hub</h4>
             Es un repetidor multipuerto. Repite la señal por todos los puertos menos por el que ha entrado. Crea trafico innecesario, genera problemas de seguridad al poder capturar tramas.
-
-
             <br><br><a href="#indice">Enlace al titulo</a>
         <h3>2.2. Elementos de la capa de enlace</h3>
+            <h4>NIC (Network Interface Card)</h4>
+            <p>Es la comunmente llamada <strong>Tarjeta de Red</strong>. Sirve para poner y recoger la trama del medio de transmisión, controlar que la trama no tenga errores. Se utilizan los protocolos <strong>CSMA/CD</strong> para cableado y <strong>CSMA/CA</strong> para inalámbrico.</p>
+            <p>Guarda la dirección <strong>MAC</strong> (Media Acces Control).</p>
+            <p>Ejemplo de MAC: F4:B7:C3:12:34:B7 (48 bits, hexadecimal). Está compuesta por el ID de fabricante OUI y por el nº de secuencia.</p>
+            <p>Tipos de MAC:</p>
+            <ul>
+                <li>Unicast. Destinado a una unica tarjeta</li>
+                <li>Multicast. Destiando a varias tarjetas.</li> 01-00-5E+(0+23 bits)
+                <li>Broadcast. Destinado a todas las tarjetas</li>
+                FF:FF:FF:FF:FF:FF
+            </ul>
+            <p>Tipos de NIC:</p>
+            <ul>
+                <li>Interior</li>
+                <ul>
+                    <li>Cableado</li>
+                    <li>Inalambrico</li>
+                </ul>
+                <li>Exterior</li>
+                <ul>
+                    <li>USB</li>
+                </ul>
+            </ul>
+            <h4>WIC (Wide Interface Card)</h4>
+            Point to Point Protocol, (PPP)
 
+            <h4>Switch</h4>
+            <p>Es un dispositivo que sirve para comunicar dispositivos a traves de la red cableada. Dentro del switch se guarda una <strong>tabla de conmutación o switching table</strong></p>
+            <p>Funcionamiento de un Switch al recibir una trama:</p>
+            <ol>
+                1. MAC de Origen
+                <ul>
+                    <li><strong>Lectura:</strong> El switch lee la dirección MAC de origen de la trama.</li>
+                    <li><strong>Comprobación en la Tabla de Conmutación:</strong>
+                        <ul>
+                            <li>Si la <strong>MAC de origen está registrada</strong>: Reinicia el contador asociado a esa MAC.</li>
+                            <li>Si la <strong>MAC de origen no está registrada</strong>: La guarda en la tabla de conmutación, asociándola al puerto por el que llegó la trama.</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+                2. MAC de Destino
+                <ul>
+                    <li><strong>Lectura:</strong> El switch lee la dirección MAC de destino.</li>
+                    <li><strong>Comprobación en la Tabla de Conmutación:</strong>
+                        <ul>
+                            <li>Si la <strong>MAC de destino está registrada</strong>: Envía la trama únicamente al puerto asociado a esa MAC (conmutación directa).</li>
+                            <li>Si la <strong>MAC de destino no está registrada</strong>: Realiza un <strong>broadcast</strong>:
+                                <ul>
+                                    <li>Reenvía la trama a <strong>todos los puertos conectados</strong>, excepto por el puerto de entrada.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>3. Registro de la MAC de Destino
+                    <li>Si la MAC de destino no estaba registrada, se almacena en la tabla de conmutación al identificarse en una futura respuesta.</li>
+                </ul>
+            </ol>
+            
+            <p>Ejemplo de una SWITCHING TABLE:</p>
+            <table width=100%  border="1">
+                <tbody>
+                    <tr>
+                        <th>Puerto</th>
+                        <th>MAC</th>
+                    </tr>
+                    <tr>
+                        <td>fa0/1</td>
+                        <td>00:0A:95:9D:68:16</td>
+                    </tr>
+                    <tr>
+                        <td>fa0/2</td>
+                        <td>00:0A:95:9D:68:17</td>
+                    </tr>
+                    <tr>
+                        <td>fa0/3</td>
+                        <td>00:0A:95:9D:68:18</td>
+                    </tr>
+                    <tr>
+                        <td>fa0/4</td>
+                        <td>00:0A:95:9D:68:19</td>
+                    </tr>
+                </tbody>
+            </table>
+            Metodos de reenvío de tramas:
+            
+
+            <h4>Access Point</h4>
+            <h4>Controladores Acces Point</h4>
+            <a href="#indice">Enlace al titulo</a>
         </article>
-        <a href="#indice">Enlace al titulo</a>
-    </section>
-
-
-
-
-
 </body>
 </html>
