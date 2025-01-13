@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../Icons/programación.ico">
+    <title>Funciones en PHP</title>
+</head>
+<body>
+    <header>
+        <h1>Funciones en PHP</h1>
+    </header>
+    <main>
+        <section>
+            <article>
+                <h2>Introducción a las funciones</h2>
+                <p>
+                    Las funciones se utilizan para evitar la repetición de código, permitiendo llamarlas cuando las necesitemos.
+                    Se estructuran utilizando el nombre de la función seguido de <code>()</code>, donde pueden incluirse parámetros. 
+                    Podemos pensar en las funciones como una "caja" que recibe datos de entrada, ejecuta las instrucciones dentro 
+                    de ella y, opcionalmente, devuelve datos de salida.
+                </p>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h2>Creación de funciones</h2>
+                <p>
+                    Para crear una función en PHP, utilizamos la palabra reservada <code>function</code>, seguida del nombre 
+                    de la función y, opcionalmente, los parámetros que recibe entre paréntesis <code>()</code>.
+                </p>
+                <pre><code>
+                function nombreFuncion($parametro1, $parametro2) {
+                    ...
+                    return ...;
+                }
+                </code></pre>
+                <p>Es importante que para que la función devuelva debemos usar return, todo lo que haya por debajo del return no se ejecutará. </p>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h2>Llamar a las funciones</h2>
+                <p>
+                    Para llamar a una función en PHP, simplemente escribimos su nombre seguido de paréntesis 
+                    <code>()</code>. Si la función tiene parámetros, debemos pasarlos entre los paréntesis.
+                </p>
+                <pre><code>
+                nombreFuncion($valor1, $valor2);
+                </code></pre>
+            </article>
+            <article>
+                <h2>Ejemplo de función</h2>
+                <pre><code>
+                function suma($a, $b) {
+                    return $a + $b;
+                }
+                echo suma(2, 3); // Muestra 5
+                </code></pre>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

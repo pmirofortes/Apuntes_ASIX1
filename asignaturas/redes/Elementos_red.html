@@ -5,100 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elementos de Red</title>
     <link rel="icon" href="../../Icons/redes.ico">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #00A86B; 
-        }
-
-        h1 {
-            text-align: center;
-            color: white; 
-            padding: 20px;
-            margin-top: 0;
-        }
-
-        /* Header fijo */
-        header {
-            background-color: #00A86B; /* Fondo verde jade */
-            color: white; /* Texto blanco */
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-evenly;
-            margin-top: 10px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            text-transform: uppercase;
-            padding: 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #00A86B; /* Verde jade */
-            background-color: white;
-        }
-
-        nav .active {
-            color: #00A86B;
-            background-color: white;
-        }
-
-        section {
-            margin-top: 120px;
-            padding: 20px;
-        }
-
-        h2 {
-            color: #00A86B; /* Verde jade */
-        }
-
-        ol {
-            list-style-type: decimal;
-            margin-left: 20px;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        
-
-        #indice a {
-            color: #00A86B; /* Verde jade */
-            font-size: 1.2em;
-        }
-
-        #indice a:hover {
-            color: #333; /* Vuelve al gris oscuro al pasar */
-            font-weight: bold;
-        }
-
-        section p {
-            margin: 15px 0;
-        }
-    </style>
 
 </head>
 <body>
@@ -108,8 +14,8 @@
     <section id="indice">
         <ul>
             <h2>Indice</h2>
-            <li><h3>Elementos de la capa física</h3></li>
-            <li><h3>Elementos de la capa de enlace</h3></li>
+            <li><a href="#elementos_capa_fisica"><h3>Elementos de la capa física</h3></a></li>
+            <li><a href="#elementos_capa_enlace"><h3>Elementos de la capa de enlace</h3></a></li>
         </ul>
     </section>
     <section>
@@ -163,7 +69,7 @@
                         <strong>WiFi (IEEE 802.11) o WLAN</strong>
                         <p>Permite conexión inalámbrica entre dispositivos y un Access Point o router.</p>
                         <p><strong>Protocolo:</strong> CSMA/CA.</p>
-                        <p>El área de cobertura depende de la potencia de emisión y la ubicación del dispositivo emisor.</p>
+                        <p>El área de cobertura depende de la potencia de emisión, la frecuencia de emisión y la ubicación del dispositivo emisor.</p>
                         <h5>Topologías WiFi:</h5>
                         <ul>
                             <li>IBSS (Independent Basic Service Set)</li>
@@ -380,13 +286,122 @@
                     </tr>
                 </tbody>
             </table>
+            <br>
             Metodos de reenvío de tramas:
+            - almacenamiento y envio (store and forward)
+                llega la trama, almacena la trama, comprueba que no haya errores y la envia.
+            - por metodo de corte (cut-through)
+                como minimo solo debe leer hasta la direccion MAC destino. Es mas rapida pero puede enviar tramas con errores. tiene 2 tipos, el reenvio rapido (fast forward), este metodo ofrece la latencia mas baja, al leer la trama, la envia inmediatamente y libre de fragmentos (free fragment), este metodo almacena los primeros 64 bytes para asegurar que no haya ninguna colision, es un punto medio entre el store and forward y el fast forward.
+            Caracteristicas de los switches:
+            - el nº de puertos
+            - la velocidad de los puertos (fast o giga, las velocidades pueden ir mixtas) (BITS por segundo)
+            - Puertos PoE (Power over Ethernet), permite dar energia a pequeños dispositivos como un access Point
+            - Puertos MDIX, internamente de si el cable es recto o cruzado tengas conectividad 
+            - Que permita QoS.
+            - apilable, permite que se puedan conectar 2 switches por detras con un cable MARGARITA (imagen)y funcione como un unico switch de mas puertos.
+            - switches que sean de capa 3
+            - agregado de enlaces, permite unir 2 puertos para que funcione como un unico puerto de mayor velocidad de transmisión.
+            - modular, permite añadir los puertos vacios
+            - configurable
+            - enrackable 
+            - precio
             
 
             <h4>Access Point</h4>
-            <h4>Controladores Acces Point</h4>
+            2 tipos, autonomo (lightweight, LAPs) y basado en controladores () <p>El área de cobertura depende de la potencia de emisión, la frecuencia de emisión y la ubicación del dispositivo emisor.</p>
+            topologias con access point:
+                - modo ad hoc. 2 ordenadores conectados directamente, se le llama IBSS (enlace)
+                - modo Infraestructura BSS (enlace)
+                ESS, SSID es el nombre de la red y cada AP tiene un BSSID que es la MAC de el AP
+            <h4>Controladores Acces Point o Controlador VLAN</h4>
+            <p>Su función es gestionar los puntos de acceso. Indicando que SSID publica cada AP, el nº de usuarios conectados y temas de protocolos de seguridad.</p>
             <a href="#indice">Enlace al titulo</a>
         </section>
+        <section id="elementos_capa_red">
+            <h3>2.3. Elementos de Capa de Red</h3>
+            <h4>Router</h4>
+            <p>Su función es comunicar redes/subredes, qproximar los paquetes hacia su destino.</p>
+            <p>cuando le llega la trama:
+                <ol>
+                    <li>leer la MAC destino y comprobar que es para el router</li>
+                    <li>Comprobar que no tenga errores </li>
+                    <li>Desencapsula para obtener el paquete </li>
+                    <li>Decrementar en 1 el campo TTL - Si el TTL es != a 0, leer la dirección IP destino y buscar en la tabla de enrutamiento (routing table) que puerto debe enviar la trama.</li>
+                    <li>Calcular el ID Red destino</li>
+                    <li>Comprueba si está en la tabla de enrutamiento:
+                        - si está en la tabla de enrutamiento, empaqueta dentro de una trama y lo envia al puerto asociado.
+                        - si no está en la tabla de enrutamiento, en el caso de que este configurada la ruta por defecto, empaqueta y la envia por la ruta, sino la elimina.</li>
+                </ol>
+           
+            <p>Ejemplo tabla enrutamiento:</p>
+            <table width=100% border="1">
+                <tbody>
+                    <tr>
+                        <th>IP Destino</th>
+                        <th>Puerto Destino</th>
+                    </tr>
+                    <tr>
+                        <td>192.168.1.0/24</td>
+                        <td>192.168.1.1</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.2.0/24</td>
+                        <td>192.168.2.1</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.3.0/24</td>
+                        <td>192.168.3.1</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.4.0/24</td>
+                        <td>192.168.4.1</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+        <section>
+            <h3>2.4. </h3>
+        </section>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
 </body>
 </html>

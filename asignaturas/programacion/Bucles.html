@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../Icons/programación.ico">
+    <title>Bucles en PHP</title>
+</head>
+<body>
+    <header>
+        <h1>Bucles en PHP - Tema 3</h1>
+    </header>
+
+    <nav>
+        <h2>Índice</h2>
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#foreach">Foreach</a></li>
+            <li><a href="#while">While</a></li>
+            <li><a href="#for">For</a></li>
+        </ul>
+    </nav>
+
+    <section id="introduccion">
+        <h2>Introducción</h2>
+        <p>En PHP, los bucles nos permiten repetir un bloque de código mientras se cumpla una condición o para recorrer estructuras como arrays. Los principales tipos de bucles en PHP son:</p>
+        <ul>
+            <li><strong>Foreach</strong>: Ideal para recorrer arrays.</li>
+            <li><strong>While</strong>: Se ejecuta mientras una condición sea verdadera.</li>
+            <li><strong>For</strong>: Útil para iteraciones controladas por un contador.</li>
+        </ul>
+    </section>
+
+    <section id="foreach">
+        <h2>Foreach</h2>
+        <p>Es la forma más sencilla de recorrer un array en PHP. Se utiliza para acceder directamente a los valores de cada elemento.</p>
+        <pre>
+<code>
+$array = [1, 2, 3] //imprimir la suma de 3 elementos de un array 
+    foreach ($array as $valor) {
+        $suma = $valor + $suma;
+    }
+    echo "La suma de los 3 elementos es:". $suma;
+</code>
+        </pre>
+    </section>
+
+    <section id="while">
+        <h2>While</h2>
+        <p>El bucle <strong>while</strong> ejecuta un bloque de código mientras la condición especificada sea verdadera.</p>
+        <pre>
+<code>
+$contador = 0;
+while ($contador < 5) {
+    echo "El contador es: $contador<br>";
+    $contador++;
+}
+// Salida:
+// El contador es: 0
+// El contador es: 1
+// ...
+</code>
+        </pre>
+    </section>
+
+    <section id="for">
+        <h2>For</h2>
+        <p>El bucle <strong>for</strong> se utiliza cuando sabemos de antemano cuántas iteraciones debemos realizar. Se define con tres parámetros: inicialización, condición y actualización.</p>
+        <pre>
+<code>
+    for (inicio del contador; condicion de parada; incremento del contador) 
+for ($i = 0; $i < 5; $i++) {
+    echo "Valor de i: $i<br>";
+}
+// Salida:
+// Valor de i: 0
+// Valor de i: 1
+// ...
+</code>
+        </pre>
+    </section>
+</body>
+</html>

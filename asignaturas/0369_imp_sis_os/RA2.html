@@ -5,101 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Índice de Implantación de Sistemas Operativos - ASIX</title>
     <link rel="icon" href="../../Icons/sistemas_.ico">
-    <style>
-        /* Estilo General */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #00A86B; 
-        }
-
-        h1 {
-            text-align: center;
-            color: white; 
-            padding: 20px;
-            margin-top: 0;
-        }
-
-        /* Header fijo */
-        header {
-            background-color: #00A86B; /* Fondo verde jade */
-            color: white; /* Texto blanco */
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-evenly;
-            margin-top: 10px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            text-transform: uppercase;
-            padding: 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #00A86B; /* Verde jade */
-            background-color: white;
-        }
-
-        nav .active {
-            color: #00A86B;
-            background-color: white;
-        }
-
-        section {
-            margin-top: 120px;
-            padding: 20px;
-        }
-
-        h2 {
-            color: #00A86B; /* Verde jade */
-        }
-
-        ol {
-            list-style-type: decimal;
-            margin-left: 20px;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        
-
-        #indice a {
-            color: #00A86B; /* Verde jade */
-            font-size: 1.2em;
-        }
-
-        #indice a:hover {
-            color: #333; /* Vuelve al gris oscuro al pasar */
-            font-weight: bold;
-        }
-
-        section p {
-            margin: 15px 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -107,9 +12,9 @@
         <h1>Índice de Sistemas Operativos - ASIX</h1>
         <nav>
             <a href="#indice" class="active">Índice</a>
-            <a href="#tema-1">Tema1</a>
-            <a href="#tema-2">Tema2</a>
-            <a href="#tema-3">Tema3</a>
+            <a href="#tema-1">Directivas de contraseña Windows</a>
+            <a href="#tema-2">Directivas de contraseña Ubuntu</a>
+            <a href="#tema-3">Configuración red windows</a>
             <a href="#tema-4">Tema4</a>
             <a href="#tema-5">Tema5</a>
             <a href="#tema-6">Tema6</a>
@@ -118,28 +23,29 @@
     </header>
 
     <section id="indice">
-        <h2><br>Índice de Sistemas Operativos</h2>
+        <br><br><br><br><br><br><br><br><br><br>
+        <h2>Índice de Sistemas Operativos</h2>
         <ol>
-            <li><a href="#tema1">Tema1</a></li>
-            <li><a href="#tema2">Tema2</a></li>
-            <li><a href="#tema3">Tema3</a></li>
-            <li><a href="#tema4">Tema4</a></li>
+            <li><a href="#tema-1">Tema4</a></li>
+            <li><a href="#tema-2">Directivas de contraseña Windows</a></li>
+            <li><a href="#tema-3">Directivas de contraseña Ubuntu</a></li>
+            <li><a href="#tema-4">Configuración red Windows</a></li>
             <li><a href="#tema5">Tema5</a></li>
             <li><a href="#tema-6">Tema6</a></li>
             <li><a href="#tema-7">Tema7</a></li>
         </ol>
     </section>
 
-    <section id="tema-1">
+    <section id="tema-2">
         <h1>2. Seguridad de cuentas de usuarios</h1>
         
     <section>
         <h2>Directivas de contraseña en Windows</h2>
-CLASE QUE FALTE (RELLENAR)<br><br><br><br><br><br><br><br><br><br><br>
+        CLASE QUE FALTE (RELLENAR)<br><br><br><br><br><br><br><br><br><br><br>
 
     </section>
     
-    <section>
+    <section id="tema-3">
         <h2>Directivas de contraseña en Ubuntu</h2>
         <h3>Configuración de contraseñas en Ubuntu</h3>
         <p>Ubuntu permite configurar politicas de contraseñas editando el archivo <code>/etc/pam.d/common-password</code>.
@@ -168,11 +74,9 @@ CLASE QUE FALTE (RELLENAR)<br><br><br><br><br><br><br><br><br><br><br>
        </ul>
     </section>
 
-    
     <section>
        <h3>Historial y duración</h3>
        <p>Conservar un historial de contraseñas con <code>pam_pwhistory.so</code>y el archivo <code>opasswd</code>.</p>
-
        <p>Creación del historial:</p>
         <ol>
             <li><code>touch /etc/security/opasswd</code></li>
@@ -180,7 +84,6 @@ CLASE QUE FALTE (RELLENAR)<br><br><br><br><br><br><br><br><br><br><br>
             <li><code>chmod 600 /etc/security/opasswd</code> (600 es rw- --- ---) los 3 numeros vienen por los permisos de usuario/grupo/others</li>
         </ol>
        
-
        <p>Configuración del nombre de contraseñas a recordar:</p>
        <ul>
             <li>Configurar el archivo <code>/etc/pam.d/common-password</code> con:</li>
@@ -198,10 +101,16 @@ CLASE QUE FALTE (RELLENAR)<br><br><br><br><br><br><br><br><br><br><br>
             <li><code>PASS_MAX_DAYS</code>: Numero máximo de dias que una contraseña puede ser utilizada antes que sea cambiada </li>
             <li><code>PASS_MIN_DAYS</code>: Numero mínimo de dias que se tienen que esperar antes de que la contraseña caduque </li>
             <li><code>PASS_WARN_AGE</code>: Numero de dás de aviso antes que la contraseña caduque y el usuario tenga que cambiarla.</li>
-
-
-
         </ul>
+    </section>
+    <section id="tema-4">
+        <h2>Configuración de red en Windows</h2>
+        
+
+
+
+
+
     </section>
 
 
