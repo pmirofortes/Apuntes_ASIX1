@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introducción de las redes</title>
+    <link ret="stylesheet" href="../../style.css" rel="stylesheet">
     <link rel="icon" href="../../Icons/redes.ico">
 </head>
 <body>
@@ -76,7 +77,128 @@
             <h4>1.2.2. Clasificación de las redes</h4>
             <ul>
                 <li>Convergente vs no convergentes</li>
+                <p>Permite transmitir voz, video y audio por la misma infraestructura.</p>
+                <li>Orientadas a conexión o no orientadas a conexión</li>
+                <p>Estableciemnto previo (RTB, red telefónica basica)</p>
+                <li>Conmutación por circuitos o por paquetes</li>
+                <p>La conmutación por circuitos no se dividen y forman un uso poco eficiente de las lineas. Llegan de forma ordenada</p>
+                <p>La conmutación por paquetes se dividen en segmentos de información, cada paquete necesita la dirección destino y nº de secuencia. Llegan de forma desordenada y ofrecen mayor seguridad. Es un uso eficiente de las lineas</p>
+                <ul>
+                    <li>Modo datagrama</li>
+                    <p>Cada paquete puede viajar por un camino diferente. Tienen que llevar la dirección destino y pueden llegar desordenadas.</p>
+                    <li>Modo circuito virtual</li>
+                    <p>Todos los paquetes viajan por el mismo camino. El primer paquete marca el camino y el resto llegan de forma ordenada</p>
+                </ul>
+                <li>PAN, LAN, MAN, WAN</li>
+                <ul>
+                    <li><strong>PAN</strong> (Personal Area Network). Ej: Bluetooth, red interna de ordenadores...</li>
+                    <li><strong>LAN</strong> (Local Area Network). Ej: Red de una oficina, colegio... <p>Las ventajas de las LAN es que tienen velocidad de transmisión elevada y es más fácil protegerla</p></li>
+                    <li><strong>MAN</strong> (Metropolitan Area Network). Ej: Rescat, une la conexión de varias ciudades.</li>
+                    <li><strong>WAN</strong> (Wide Area Network). Ej: Telefonica, proovedores de internet.</li>
+                </ul>
             </ul>
+            <h4>1.2.3. Tipologías de red</h4>
+            <p>Identifica como se conectan los dispositivos</p>
+            <h5>Topologías Fisicas LAN</h5>
+            <ul>
+                <li>Bus</li>
+                <img src="./images/bus.png"></img>
+                <li>Anillo</li>
+                <img src="./images/anillo.png"></img>
+                <li>Estrella</li>
+                <img src="./images/estrella.png"></img>
+                <li>Estrella extendida</li>
+                <img src="./images/estrella_ext.png"></img>
+            </ul>
+            <p>Topologías Fisicas WAN</p>
+            <ul>
+                <li>Punto a punto</li>
+                <img src="./images/p2p.png"></img>
+                <li>Hub and spoke</li>
+                <img src="./images/hub_spoke.png"></img>
+                <li>Malla</li>
+                <img src="./images/malla.png"></img>
+            </ul>
+            <p>Topologías Lógicas</p>
+            <p>Se refiere a la forma en la que se transmiten las tramas</p>
+            <ul>
+                <li>Broadcast o por contienda</li>
+                <p>Si un dispositivo desea transmitir debe comprobar que el medio de transmisión esté libre. Si está libre pone la trama en el medio. Si ha habido colisión esperar un tiempo aleatorio y volver a escuchar.</p>
+                <p>El protocolo que usa es el <strong>CSMA/CD</strong> (Carreer Sense Multiple Acces /Collision Detection). No es eficiente si hay muchas conexiones.</p> 
+                <li>Pase de testigo</li>
+                <p>El dispositivo que desea transmitir tiene que esperar a que llegue el token. Es bueno cuando muchos desean transmitir pero no es el que más se usa. (Su topología fisica es el anillo <strong>"tokenring"</strong>)</p>
+            </ul>
+            <h4>1.2.4. Conexiones a internet</h4>
+            <p>Para usuarios:</p>
+            <ul>
+                <li>FTTH (Fiber To The Home)</li>
+                <li>ADSL (Asymetric Digital Subscriber Line (par telefónico)). Tiene un ancho de banda de descarga mayor que el de subida. </li>
+                <li>Cable: HFC (Hybrid Fiber Coaxial)</li>
+                <li>Datos móviles: Radioenlaces a la estación base.</li>
+            </ul>
+            <p>Para empresas:</p>
+            <ul>
+                <li>FTTH</li>
+                <li>WiMAX</li>
+                <li>Satelite</li>
+                <li>Linea dedicada</li>
+                <li>DSL Empresarial</li>
+                <li>Metro LAN</li>
+            </ul>
+            <h3>Modelo OSI y modelo TCP/IP</h3>
+            <p>Los protocolos son conjuntos de normas que permiten acceder al medio de transmisón, seguridad, controlar el flujo de datos, identificar.</p>
+            <table border=1px">
+                <tr>
+                    <th>Modelo OSI</th>
+                    <th>PDU</th>
+                    <th>Modelo TCP/IP</th>
+                </tr>
+                <tr>
+                    <td>Aplicación</td>
+                    <td rowspan="3">Datos</td>
+                    <td rowspan="3">Aplicación</td>
+                </tr>
+                <tr>
+                    <td>Presentación</td>
+                </tr>
+                <tr>
+                    <td>Sesión</td>
+                </tr>
+                <tr>
+                    <td>Transporte</td>
+                    <td>Segmento</td>
+                    <td>Transporte</td>
+                </tr>
+                <tr>
+                    <td>Red</td>
+                    <td>Paquete</td>
+                    <td>Internet</td>
+                </tr>
+                <tr>
+                    <td>Enlace de datos</td>
+                    <td rowspan="2">Trama</td>
+                    <td rowspan="2">Acceso a red</td>
+                </tr>
+                <tr>
+                    <td>Física</td>
+                </tr>
+            </table>
+            <p>Beneficios del uso de capas:</p>
+            <ul>
+                <li>Ayuda en el diseño de protocolos</li>
+                <li>Fomenta la competéncia</li>
+                <li>Evita que los cambios de tecnología afecten a capas superiores.</li>
+            </ul>
+            <h4>Modelo OSI</h4>
+            <p>Es un modelo teórico que se creó para estandarizar la comunicación entre diferentes dispositivos. Se compone de 7 capas:</p>
+            <ul>
+                <li>7. Aplicación</li>
+                <li>6. Presentación</li>
+                <li>5. Sesión</li>
+                <li>4. Transporte<p>Segmentar, ensamblar y transferir los datos. Control de flujos de los segmentos de extremo a extemo.</p></li>
+                <li>3. Red<p>Protocolo para el intercambio de paquetes, direccionamiento lógico (IPv4 e IPv6), enrutamiento de paquetes</p></li>
+                <li>2. Enlace de datos<p>Metodos para intercambiar tramas a través de un medio compartido. Ej: CSMA/CA, CSMA/CD, pase de testigos, control de errores en la trama y direccionamiento físico (Dir. MAC)</p></li>
+                <li>1. Física<p>Componentes mecánicos, electricos y funcionales para la transmisión de bits</p></li>
 
 
         </article>

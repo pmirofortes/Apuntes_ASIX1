@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elementos de Red</title>
+    <link ret="stylesheet" href="../../style.css" rel="stylesheet">
     <link rel="icon" href="../../Icons/redes.ico">
 
 </head>
@@ -16,9 +17,12 @@
             <h2>Indice</h2>
             <li><a href="#elementos_capa_fisica"><h3>Elementos de la capa física</h3></a></li>
             <li><a href="#elementos_capa_enlace"><h3>Elementos de la capa de enlace</h3></a></li>
+            <li><a href="#elementos_capa_red"><h3>Elementos de la capa de red</h3></a></li>
+            <li><a href="#elementos_capa_aplicacion"><h3>Elementos de la capa de aplicación</h3></a></li>
         </ul>
     </section>
-    <section>
+    <section id="elementos de red">
+        <h2>2. Elementos de Red</h2>
         <section id="elementos_capa_fisica">
             <h3>2.1. Elementos de la capa física</h3>
                 <h4>Cableado</h4>
@@ -358,50 +362,49 @@
                     </tr>
                 </tbody>
             </table>
-
         </section>
-        <section>
-            <h3>2.4. </h3>
+        <section id="elementos_capa_aplicacion">
+            <h3>2.4. Elementos de la capa de aplicación </h3>
+            <h4>Firewall</h4>
+            <p>Es un dispositivo que filtra el tráfico, tanto de entrada como de salida. Debe tener 2 puertos (como el router) tanto de entrada como de salida. El filtrado de trafico puede tener 2 objetivos.</p>
+            <ul>
+                <li>Evitar ataques (DDOS, malware, exploits…)</li>
+                <li>Evitar que salga trafico no deseado (por IPs, por palabras, por protocolo)</li>
+            </ul>
+            <h5>Tipos de firewall</h5>
+            <ul>
+                <li>Software: pfsense</li>
+                <li>Hardware: ASA Cisco, Palo Alto, Fortinet</li>
+            </ul>
         </section>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
+    <section>
+        <section>
+            <h2>3. Esquemas de red</h2>
+            <h3>3.1. Esquema básico</h3>
+                <img src="./../redes/images/esquema_basico_red.png">
+                <p>Típico esquema básico de una red interna.</p>
+            <h3>3.2. esquema con DMZ (zona desmilitarizada)</h3>
+                <img src="./../redes/images/esquema_red_dmz.jpg">
+                <p>Es un esquema de red básico añadiendo una zona aparte llamada DMZ, la red local podrá acceder a los servidores del DMZ, ida y vuelta no solo ida. Del DMZ no se puede acceder a la red interna.</p>
+            <h3>3.3 esquema con zona neutra y zrouters</h3>
+                <img src="./../redes/images/esquema_zona_neutra.jpg">
+                <p>Se establece un router pertimetral en la zona neutra, entre red interna e internet.</p></p>
+        </section>
+        <section>
+            <h2>4. mapas físicos y lógicos de red</h2>
+            <h3>4.1. Componentes de cableado estructural</h3>
+            <ul>
+                
+            </ul>
+                > Sigue una normativa (TIA/EIA 568B)
+                >> Cable de área de trabajo. PC a roseta, max 5 metros
+                >> Cable horizontal. Roseta a Switch de planta, max 90 metros
+                >> Cable vertical. De una planta a otra planta (Switch de la sala intermedia al Switch del CPD), max 100 metros
+                >> Cable de interconexión dentro del CPD. max 5 metros
+                4.2. Mapas físicos y lógico de una red
+            </p>
+        </section>
+    </section>
 </body>
 </html>

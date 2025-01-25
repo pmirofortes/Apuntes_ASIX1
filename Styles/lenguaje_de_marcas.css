@@ -1,0 +1,32 @@
+
+/* Fuente de la pagina */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+* {font-family: "Ubuntu", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+code {
+  font-family: "Source Code Pro", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Estilos del header */
+header {
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  background-color: #FF5733;
+}
+
+/* Estilos de los codigos */
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+}

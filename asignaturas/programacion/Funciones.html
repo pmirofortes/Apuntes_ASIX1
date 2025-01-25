@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../Icons/programación.ico">
+    <link ret="stylesheet" href="../../Styles/programacion.css" rel="stylesheet">
     <title>Funciones en PHP</title>
 </head>
 <body>
     <header>
-        <h1>Funciones en PHP</h1>
+        <h1 class="Titulo">Funciones en PHP</h1>
     </header>
     <main>
         <section>
@@ -29,12 +30,14 @@
                     Para crear una función en PHP, utilizamos la palabra reservada <code>function</code>, seguida del nombre 
                     de la función y, opcionalmente, los parámetros que recibe entre paréntesis <code>()</code>.
                 </p>
-                <pre><code>
+                <div class="code">
+                    <pre><code>
                 function nombreFuncion($parametro1, $parametro2) {
                     ...
                     return ...;
                 }
-                </code></pre>
+                    </code></pre>
+                </div>
                 <p>Es importante que para que la función devuelva debemos usar return, todo lo que haya por debajo del return no se ejecutará. </p>
             </article>
         </section>
@@ -56,6 +59,22 @@
                     return $a + $b;
                 }
                 echo suma(2, 3); // Muestra 5
+                </code></pre>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h2>Parámetros por defecto</h2>
+                <p>
+                    Podemos definir valores por defecto para los parámetros de una función. Si no se pasan parámetros 
+                    en la llamada, el valor por defecto se usará.
+                </p>
+                <pre><code>
+                function saludar($nombre = "Mundo") {
+                    return "Hola, $nombre!";
+                }
+                echo saludar(); // Muestra: Hola, Mundo!
+                echo saludar("Juan"); // Muestra: Hola, Juan!
                 </code></pre>
             </article>
         </section>
