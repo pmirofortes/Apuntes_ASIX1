@@ -192,14 +192,66 @@
             <h4>Modelo OSI</h4>
             <p>Es un modelo teórico que se creó para estandarizar la comunicación entre diferentes dispositivos. Se compone de 7 capas:</p>
             <ul>
-                <li>7. Aplicación</li>
-                <li>6. Presentación</li>
-                <li>5. Sesión</li>
-                <li>4. Transporte<p>Segmentar, ensamblar y transferir los datos. Control de flujos de los segmentos de extremo a extemo.</p></li>
-                <li>3. Red<p>Protocolo para el intercambio de paquetes, direccionamiento lógico (IPv4 e IPv6), enrutamiento de paquetes</p></li>
-                <li>2. Enlace de datos<p>Metodos para intercambiar tramas a través de un medio compartido. Ej: CSMA/CA, CSMA/CD, pase de testigos, control de errores en la trama y direccionamiento físico (Dir. MAC)</p></li>
-                <li>1. Física<p>Componentes mecánicos, electricos y funcionales para la transmisión de bits</p></li>
-
+                <li>1. Capa Física</li>
+                <p><strong>Función :</strong>Transmite bits a través del medio físico (cable, fibra óptica, ondas de radio)</p>
+                <p><strong>Elementos:</strong></p>
+               <ul>
+                    <li>Cables (UTP, fibra óptica, coaxial...)</li>
+                    <li>Conectores (RJ45, puertos USB...)</li>
+                    <li>Señales eléctricas, ópticas o de radio.</li>
+               </ul>
+               <p><strong>Para qué sirve: </strong>Define las caracteristicas físicas del medio de transmisión, como voltajes, sincronización y velocidad.</p>
+               <li>2. Capa de Enlace de Datos</li>
+                <p><strong>Función: </strong>Garantiza la transferencia libre de errores entre nodos conectados físicamente. Divide datos en tramas y gestiona el acceso al medio.</p>
+                <p><strong>Elementos:</strong></p>
+                <ul>
+                    <li>Direcciones MAC</li>
+                    <li>Switches</li>
+                    <li>Protocolos como Ethernet, Wi-fi, PPP</li>
+                </ul>
+                <p><strong>Para qué sirve: </strong>Detecta y corrige errores de transmisión, controla quién usa el medio de transmisión y organiza los datos en tramas.</p>
+                <li>3. Capa de Red</li>
+                <p><strong>Función: </strong>Determina la mejor ruta para enviar los datos entre dispositivos (enrutamiento).</p>
+                <p><strong>Elementos:</strong></p>
+                <ul>
+                    <li>Direcciones IP (IPv4/IPv6)</li>
+                    <li>Routers</li>
+                    <li>Protocolos como IP, ICMP, RIP, OSPF.</li>
+                </ul>
+                <p><strong>Para qué sirve: </strong>Permite que los datos viajen a través de múltiples redes, asegurando que lleguen al destino correcto.</p>
+                <li>4. Capa de Transporte</li>
+                <p><strong>Función: </strong>Asegura la entrega confiable de datos de extremo a extremo. Gestiona la segmentación y reensamblaje.</p>
+                <p><strong>Elementos:</strong></p>
+                <ul>
+                    <li>Protocolos como TCP, UDP</li>
+                    <li>(ejemplo: puerto 80 para HTTP, puerto 443 para HTTPS)</li>
+                </ul>
+                <p><strong>Para qué sirve: </strong>Proporciona control de errores, retransmisión si es necesario (TCP) y garantiza la entrega ordenada de los datos.</p>
+                <li>5. Capa de Sesión</li>
+                <p><strong>Función: </strong>Establece, mantiene y finaliza las conexiones entre aplicaciones.</p>
+                <p><strong>Elementos:</strong></p>
+                <ul>
+                    <li>Protocolos como NetBIOS, RPC, PPTP</li>
+                    <li>APIs y bibliotecas de programación</li>
+                </ul>
+                <p><strong>Para qué sirve: </strong>Permite que las aplicaciones en diferentes dispositivos se comuniquen y sincronicen.</p>
+                <li>6. Capa de Presentación</li>
+                <p><strong>Función: </strong>Traduce, cifra y comprime los datos para que puedan ser interpretados por las aplicaciones.</p>
+                <p><strong>Elementos:</strong></p>
+                <ul>
+                    <li>Protocolos como SSL, TLS</li>
+                    <li>Formatos de datos como JPEG, MP3, PDF</li>
+                </ul>
+                <p><strong>Para qué sirve: </strong>Garantiza que los datos sean legibles y comprensibles para las aplicaciones.</p>
+                <li>7. Capa de Aplicación</li>
+                <p><strong>Función: </strong>Proporciona servicios de red a las aplicaciones, como correo electrónico, transferencia de archivos, navegación web.</p>
+                <p><strong>Elementos:</strong></p>
+                <ul>
+                    <li>Protocolos como HTTP, FTP, SMTP</li>
+                    <li>Aplicaciones como navegadores web, clientes de correo electrónico</li>
+                </ul>
+                <p><strong>Para qué sirve: </strong>Permite a las aplicaciones acceder a los servicios de red y comunicarse con otros dispositivos.</p>
+            </ul>
 
         </article>
         <a href="#indice">Enlace al titulo</a>
