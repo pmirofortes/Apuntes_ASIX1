@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RA2</title>
+</head>
+<body>
+    <section>
+        <h1>Direccionamiento IP</h1>
+        <h2>Direcciones IPv4</h2>
+        <h3>Estructura de la dirección IPv4</h3>
+        <p>La IP sirve para identificar un dispositivo/host en la red. Tambien se le llama dirección lógica y es de 32 bits. Es una dirección jerárquica, hay una parte de la dirección que da información, se divide en: red/host. </p>
+        <h3>Clases de direcciones IP</h3>
+        <table border>
+            <th>Clase</th>
+            <th>1r byte en decimal</th>
+            <th>Primeros bits</th>
+            <th>Net+Host</th>
+            <th>Ejemplo</th>
+            <tbody>
+                <tr>
+                    <td>A</td>
+                    <td>0 al 127</td>
+                    <td>Empieza por 0</td>
+                    <td>N.H.H.H 7/24</td>
+                    <td>11.7.203.4</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>128 al 191</td>
+                    <td>Empieza por 10</td>
+                    <td>N.N.H.H 14/16</td>
+                    <td>132.10.120.208</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>192 al 223</td>
+                    <td>Empieza por 110</td>
+                    <td>N.N.N.H 5/21</td>
+                    <td>198.33.117.42</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>224 al 239</td>
+                    <td>Empieza por 1110</td>
+                    <td>/////////////</td>
+                    <td>230.7.0.2</td>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>240 al 255</td>
+                    <td>Empieza por 11110</td>
+                    <td>/////////////</td>
+                    <td>250.1.1.1</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Direccionamiento dinámico y estático</h3>
+        <p>Dinamico: La asignación de los parámetros de red (IP/Mascara/Gateway/DNS) se realiza de manera automática a través de un servidor DHCP (Dynamic Host Configuration Protocol).</p>
+        <p>Ventajas: No requiere intervención, mayor velocidad en la configuración de los equipos, se eliminan las IPs duplicadas o erróneas.</p>
+        <p>Estático: La asignación de los parámetros de red se realiza de manera manual por el administrador de red.</p>
+
+        <h3>Direcciones IPs especiales no asignables</h3>
+        <h4>ID red/subred</h4>
+        <ul>
+            <li>IPs que tienen <strong>todos los bits de host a 0.</strong></li>
+            <li>IPs de broadcast, se utilizan como IP destino a todos los paquetes de un host de una red. <strong>Todos los bits de host a 1</strong></li>
+            <li>IP de localhost <strong>(127.x.x.x)</strong></li>
+            <li>IP de ruta predeterminada, identifican cualquier paquete en una ruta por defecto <strong>(0.X.X.X)</strong>. La 0.0.0.0 es la que tienen los host cuando está a la espera de recibir la IP del switch.</li>
+            <li>IP de enlace local, son las que asigna de manera automática el sistema operativo cuando no responde el servidor DHCP <strong>169.254.X.X</strong></li>
+            <li><strong>Clase D</strong>, son direcciones multicast para un conjunto de equipos.</li>
+            <li><strong>Clase E</strong>, son direcciones experimentales para grupos de desarrollo de internet (IETF)</li>
+            <li>Test-net, son direcciones reservadas para probar o enseñar.</li>
+        </ul>
+
+
+        <h3>Mascara de subred</h3>
+        <h4>Porque se dividen?</h4>
+        <p>Para organizar los dispositivos de forma lógica (por departamentos)</p>
+        <p>Para hacer la red más eficiente, disminuyendo el tráfico.</p>
+        <p>Aislar el tráfico y por lo tanto mejorar la seguridad.</p>
+        <h4>Funciones</h4>
+        <p>Identificar que parte de la IP se corresponde con bits de red/subred y que parte con bits de host. Los 1 identifican parte de red y los 0 la parte de host.</p> 
+        <p>Dividir una red en subredes.</p>
+        <table border>
+            <th>Clase</th>
+            <th>Máscara por defecto</th>
+            <th>Abrev.</th>
+            <tbody>
+                <tr>
+                    <td>A</td>
+                    <td>255.0.0.0</td>
+                    <td>/8</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>255.255.0.0</td>
+                    <td>/16</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>255.255.255.0</td>
+                    <td>/24</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Para que una subred se conecte a otra necesitará un router</p>
+        <p>Pata que existan subredes <strong>la máscara debe ser mayor</strong> que la máscara por defecto.</p>
+
+
+
+    </section>
+    
+</body>
+</html>

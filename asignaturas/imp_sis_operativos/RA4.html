@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>RA4</h1>
+        <nav>
+            <ol>
+                <li><a>Conceptos básicos alrededor de los dominios</a></li>
+                <li><a>Organización de un dominio</a></li>
+                <li><a>Organización con múltiples dominios</a></li>
+                <li><a></a></li>
+            </ol>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>1. Concenptos básicos alrededor de los dominios</h2>
+            <p><strong>Dominio</strong> - Es la estructura básica organizativa de seguridad de un servicio de directorio</p>
+            <p><strong>Servicio de directorio</strong> - Es el encargado de almacenar información sobre todos los recursos de red como usuarios, grupos, equipos, carpetas o aplicaciones.</p>
+            <p><strong>Controlador de dominio</strong> - Es el equipo que dispone de un sistema operativo servidor promocionado (Primary Domain Controller).</p>
+            <p><strong>Catalogo global</strong> - Es la base de datos donde se almacena toda la información de los objetos del dominio.</p>
+            <p><strong>Esquema</strong> - Es como se representa de manera visual de los recursos de un dominio.</p>
+            <p><strong>Objeto</strong> - Es el elemento contenido de un dominio en el servicio directorio que representa un recurso.</p>
+            <p><strong>Atributos</strong> - Sirve para identificar una clase de objeto (nombre, apellidos, departamento)</p>
+            <p><strong>Atributo clave</strong> - Es el atributo que sirve para identificar de forma inequívoca a una clase de objeto</p>
+            <p><strong>Unidad organizativa</strong> - Es un objeto donde se categorizan diferentes objetos en función del departamento o de la clase (por ejemplo, todos los objetos relacionados con contabilidad o todos los usuarios)</p>
+            <p><strong>Árbol</strong> - Es una organización jerárquica de varios dominios donde un padre tiene subdominios, formando un árbol</p>
+            <p><strong>Bosque</strong> - Es la estructura donde hay 2+ árboles conectados. El subdominio debe llevar el apellido del padre.</p>
+            <p><strong>Relación de confianza transitiva</strong> - Permite que desde cualquier dominio o subdominio puedes acceder a la información de otro dominio o subdominio</p>
+            <p><strong>LDAP</strong> - Es el protocolo que utilizaremos en los servicios de directorio (LightWeight Directory Access Protocol)</p>
+        </section>
+        <section>
+            <h2>2. Organización de un dominio</h2>
+            <p>Dentro de la estructura de un dominio existe un catalogo global (base de datos) donde se almacena toda la información de los diferentes objetos</p>
+            <p>Cada clase de objeto tiene asignado un atributo, a través de ese atributo es sistema es capaz de daber que objeto es. Por ejemplo un objeto de clase usuario tendrá atributos como nombre, apellidos, departamento... y uno de clase equipo tendrá sistema operativo, IP, DNS...</p>
+            <h3>Estrucutra lógica</h3>
+            <p>Cuando podemos distinguir los objetos dentro del dominio a través de sus atributos y atributos clave, debemos estructurar dentro del dominio para que sea mas fácil organizarlos
+            >> La unidad básica de organización es la Unidad Organizativa (OU), son contenedores de objetos
+            >>> Las OU son objetos que nos permiten una delegación de funciones de administración por parte del administrador del dominio
+            >>> La delegación de funciones quiere decir que el administrador del dominio puede delegar sobre otros usuarios la responsabilidad de gestionar una OU concreta, o alguna clase de objetos de una OU concreta.</p>
+        </section>
+        <section>
+            <h2>3. Organización con múltiples dominios</h2>
+            <p>Útiles en redes donde la administración se realiza por diferentes autoridades.
+            > Para trabajar con dominios múltiples extenderemos el dominio padre hacia otros dominios hijos o subdominios dentro de una estructura de árbol como una estructura jerárquica de nombre DNS.</p>
+        </section>
+    </main>
+</body>
+</html>
