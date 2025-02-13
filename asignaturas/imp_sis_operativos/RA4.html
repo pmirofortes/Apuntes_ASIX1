@@ -1,54 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Administración de Dominios y Servidores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: whitesmoke;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+            margin: 10px 0;
+        }
+        section {
+            padding: 20px;
+        }
+        .note {
+            background-color: #e7f3fe;
+            padding: 10px;
+            border-left: 6px solid #2196F3;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>RA4</h1>
-        <nav>
-            <ol>
-                <li><a>Conceptos básicos alrededor de los dominios</a></li>
-                <li><a>Organización de un dominio</a></li>
-                <li><a>Organización con múltiples dominios</a></li>
-                <li><a></a></li>
-            </ol>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>1. Concenptos básicos alrededor de los dominios</h2>
-            <p><strong>Dominio</strong> - Es la estructura básica organizativa de seguridad de un servicio de directorio</p>
-            <p><strong>Servicio de directorio</strong> - Es el encargado de almacenar información sobre todos los recursos de red como usuarios, grupos, equipos, carpetas o aplicaciones.</p>
-            <p><strong>Controlador de dominio</strong> - Es el equipo que dispone de un sistema operativo servidor promocionado (Primary Domain Controller).</p>
-            <p><strong>Catalogo global</strong> - Es la base de datos donde se almacena toda la información de los objetos del dominio.</p>
-            <p><strong>Esquema</strong> - Es como se representa de manera visual de los recursos de un dominio.</p>
-            <p><strong>Objeto</strong> - Es el elemento contenido de un dominio en el servicio directorio que representa un recurso.</p>
-            <p><strong>Atributos</strong> - Sirve para identificar una clase de objeto (nombre, apellidos, departamento)</p>
-            <p><strong>Atributo clave</strong> - Es el atributo que sirve para identificar de forma inequívoca a una clase de objeto</p>
-            <p><strong>Unidad organizativa</strong> - Es un objeto donde se categorizan diferentes objetos en función del departamento o de la clase (por ejemplo, todos los objetos relacionados con contabilidad o todos los usuarios)</p>
-            <p><strong>Árbol</strong> - Es una organización jerárquica de varios dominios donde un padre tiene subdominios, formando un árbol</p>
-            <p><strong>Bosque</strong> - Es la estructura donde hay 2+ árboles conectados. El subdominio debe llevar el apellido del padre.</p>
-            <p><strong>Relación de confianza transitiva</strong> - Permite que desde cualquier dominio o subdominio puedes acceder a la información de otro dominio o subdominio</p>
-            <p><strong>LDAP</strong> - Es el protocolo que utilizaremos en los servicios de directorio (LightWeight Directory Access Protocol)</p>
-        </section>
-        <section>
-            <h2>2. Organización de un dominio</h2>
-            <p>Dentro de la estructura de un dominio existe un catalogo global (base de datos) donde se almacena toda la información de los diferentes objetos</p>
-            <p>Cada clase de objeto tiene asignado un atributo, a través de ese atributo es sistema es capaz de daber que objeto es. Por ejemplo un objeto de clase usuario tendrá atributos como nombre, apellidos, departamento... y uno de clase equipo tendrá sistema operativo, IP, DNS...</p>
-            <h3>Estrucutra lógica</h3>
-            <p>Cuando podemos distinguir los objetos dentro del dominio a través de sus atributos y atributos clave, debemos estructurar dentro del dominio para que sea mas fácil organizarlos
-            >> La unidad básica de organización es la Unidad Organizativa (OU), son contenedores de objetos
-            >>> Las OU son objetos que nos permiten una delegación de funciones de administración por parte del administrador del dominio
-            >>> La delegación de funciones quiere decir que el administrador del dominio puede delegar sobre otros usuarios la responsabilidad de gestionar una OU concreta, o alguna clase de objetos de una OU concreta.</p>
-        </section>
-        <section>
-            <h2>3. Organización con múltiples dominios</h2>
-            <p>Útiles en redes donde la administración se realiza por diferentes autoridades.
-            > Para trabajar con dominios múltiples extenderemos el dominio padre hacia otros dominios hijos o subdominios dentro de una estructura de árbol como una estructura jerárquica de nombre DNS.</p>
-        </section>
-    </main>
+
+<header>
+    <h1>Administración de Dominios y Servidores</h1>
+    <nav>
+        <a href="#conceptos-basicos">Conceptos Básicos</a>
+        <a href="#organizacion-dominio">Organización de Dominios</a>
+        <a href="#multiples-dominios">Múltiples Dominios</a>
+        <a href="#ldap">Protocolo LDAP</a>
+        <a href="#active-directory">Active Directory</a>
+        <a href="#glosario">Glosario</a>
+    </nav>
+</header>
+
+<section id="conceptos-basicos">
+    <h2>1. Conceptos Básicos sobre Dominios</h2>
+
+    <h3>¿Qué es un Dominio?</h3>
+    <p>Un dominio es la estructura básica de organización y seguridad de un servicio de directorio. Es una red de equipos que están gestionados por uno o más servidores, conocidos como <strong>controladores de dominio</strong>.</p>
+
+    <h3>¿Qué es un Servicio de Directorio?</h3>
+    <p>Un servicio de directorio es un sistema que almacena información sobre los recursos de una red, como usuarios, grupos, equipos, carpetas compartidas, impresoras y aplicaciones. Esta información se almacena en una base de datos jerárquica.</p>
+
+    <h3>¿Qué es un Controlador de Dominio?</h3>
+    <p>Un controlador de dominio es un servidor que gestiona un dominio a través de un servicio de directorio. En Windows Server, el servicio de directorio se llama <strong>Active Directory (AD)</strong>.</p>
+</section>
+
+<section id="organizacion-dominio">
+    <h2>2. Organización de un Dominio</h2>
+
+    <h3>Estructura Lógica de un Dominio</h3>
+    <p>Dentro de un dominio, la información se organiza en un <strong>catálogo global</strong>, que es una base de datos que almacena todos los objetos del dominio (usuarios, equipos, etc.). Cada objeto tiene <strong>atributos</strong> que lo definen, como el nombre, el departamento, el sistema operativo, etc.</p>
+
+    <h3>Unidades Organizativas (OU)</h3>
+    <p>Las <strong>Unidades Organizativas (OU)</strong> son contenedores que permiten organizar los objetos dentro de un dominio. Facilitan la delegación de funciones administrativas y la aplicación de políticas de grupo.</p>
+
+    <h3>Ejemplo de Creación de una OU en PowerShell</h3>
+    <code>New-ADOrganizationalUnit -Name "2425_ASIX1" -Path "DC=midom,DC=je"</code>
+
+    <h3>Estructura Lógica y Delegación de Funciones</h3>
+    <p>Las OU permiten una delegación de funciones administrativas. Por ejemplo, un administrador puede delegar la gestión de una OU específica a otro usuario.</p>
+</section>
+
+<section id="multiples-dominios">
+    <h2>3. Organización con Múltiples Dominios</h2>
+
+    <h3>Árboles y Bosques de Dominios</h3>
+    <p>En redes grandes, es común tener múltiples dominios organizados en una estructura jerárquica llamada <strong>árbol de dominios</strong>. Varios árboles pueden formar un <strong>bosque de dominios</strong>, donde los dominios comparten relaciones de confianza transitiva.</p>
+
+    <h3>Relaciones de Confianza Transitiva</h3>
+    <p>Las relaciones de confianza transitiva permiten que los usuarios de un dominio accedan a los recursos de otro dominio dentro del mismo bosque.</p>
+
+    <h3>Ejemplo de Árbol de Dominios</h3>
+    <p>Un ejemplo de un árbol de dominios podría ser:</p>
+    <ul>
+        <li><strong>Dominio raíz</strong>: empresa.com</li>
+        <li><strong>Subdominios</strong>: ventas.empresa.com, it.empresa.com</li>
+    </ul>
+</section>
+
+<section id="ldap">
+    <h2>4. Protocolo de Acceso a Dominio (LDAP)</h2>
+
+    <p>El protocolo <strong>LDAP (Lightweight Directory Access Protocol)</strong> se utiliza para acceder y gestionar los servicios de directorio. En Windows Server, se usa <strong>Active Directory</strong>, mientras que en Ubuntu Server se usa <strong>OpenLDAP</strong>.</p>
+
+    <h3>Ejemplo de Consulta LDAP en PowerShell</h3>
+    <code>Get-ADUser -Filter {EmailAddress -like "*"} -Properties EmailAddress</code>
+
+    <h3>Puerto LDAP</h3>
+    <p>LDAP utiliza el puerto <strong>TCP 389</strong> para la comunicación entre el cliente y el servidor.</p>
+</section>
+
+<section id="active-directory">
+    <h2>5. Active Directory como Servicio de Directorio en Windows Server</h2>
+
+    <h3>Creación de Usuarios en Active Directory</h3>
+    <p>Los usuarios se pueden crear tanto desde la interfaz gráfica como desde PowerShell. Aquí tienes un ejemplo de creación de un usuario en PowerShell:</p>
+    <code>New-ADUser -Name rgarc259 -GivenName Rafa -Surname "García Suárez" -AccountPassword (ConvertTo-SecureString -AsPlainText "P@ssw0rd" -Force) -ChangePasswordAtLogon $true -Path "OU=profes,DC=midom,dc=je" -Enabled $true</code>
+
+    <h3>Creación Masiva de Usuarios desde un Archivo CSV</h3>
+    <p>Active Directory permite la creación masiva de usuarios importando un archivo CSV. Aquí tienes un ejemplo de cómo hacerlo:</p>
+    <code>csvde -i -f creaciouser.csv</code>
+
+    <h3>Gestión de Grupos en Active Directory</h3>
+    <p>Los grupos en AD son útiles para asignar permisos a recursos de la red. Puedes crear grupos de seguridad o de distribución, y asignarles usuarios.</p>
+
+    <h4>Tipos de Grupos</h4>
+    <ul>
+        <li><strong>Grupos de Seguridad</strong>: Se utilizan para asignar permisos sobre recursos. Por ejemplo, puedes crear un grupo de seguridad para dar acceso a una carpeta compartida a un conjunto de usuarios.</li>
+        <li><strong>Grupos de Distribución</strong>: Se utilizan como listas de correo electrónico. Estos grupos no tienen permisos asociados, pero son útiles para enviar correos a múltiples usuarios de manera simultánea.</li>
+    </ul>
+
+    <h4>Ámbitos de Grupos</h4>
+    <p>Los grupos en Active Directory pueden tener diferentes ámbitos, que determinan cómo se pueden utilizar y a qué recursos pueden acceder:</p>
+    <ul>
+        <li><strong>Dominio Local</strong>: Estos grupos se utilizan para asignar permisos sobre recursos dentro del mismo dominio en el que se crearon. Pueden contener usuarios, grupos globales y universales de cualquier dominio del bosque.</li>
+        <li><strong>Global</strong>: Estos grupos se utilizan para asignar permisos sobre recursos en cualquier dominio del mismo bosque. Solo pueden contener usuarios y grupos globales del mismo dominio en el que se crearon.</li>
+        <li><strong>Universal</strong>: Estos grupos se utilizan para asignar permisos sobre recursos en cualquier dominio del bosque. Pueden contener usuarios, grupos globales y universales de cualquier dominio del bosque. Son ideales para entornos con múltiples dominios.</li>
+    </ul>
+
+    <h4>Ejemplo de Creación de un Grupo en PowerShell</h4>
+    <code>New-ADGroup -Name "Grupo01" -GroupCategory Security -GroupScope Global -Path "OU=ASIX1,DC=midom,DC=je" -Description "Grupo de Seguridad Global"</code>
+
+    <h4>Agregar y Eliminar Miembros de un Grupo</h4>
+    <code>Add-ADGroupMember -Identity "Grupo01" -Members "usuario1, usuario2"</code>
+    <code>Remove-ADGroupMember -Identity "Grupo01" -Members "usuario1"</code>
+
+    <h3>Consultar Propiedades de Cuentas de Usuario</h3>
+    <p>Se pueden consultar las propiedades de las cuentas de usuario utilizando PowerShell. Aquí tienes un ejemplo:</p>
+    <code>Get-ADUser -Identity "rgarc259" -Properties *</code>
+    <p>Este comando mostrará todas las propiedades del usuario <strong>rgarc259</strong>.</p>
+
+    <h3>Actualizar Propiedades de Cuentas de Usuario</h3>
+    <p>Para actualizar las propiedades de un usuario, se puede utilizar el siguiente comando en PowerShell:</p>
+    <code>Set-ADUser -Identity "rgarc259" -Department "Informática"</code>
+    <p>Este comando actualiza el departamento del usuario <strong>rgarc259</strong> a "Informática".</p>
+
+    <h3>Eliminar Cuentas de Usuario</h3>
+    <p>Para eliminar una cuenta de usuario, se puede utilizar el siguiente comando en PowerShell:</p>
+    <code>Remove-ADUser -Identity "rgarc259"</code>
+    <p>Este comando elimina al usuario <strong>rgarc259</strong>. Si deseas eliminar sin confirmación, puedes añadir el parámetro <code>-Confirm:$false</code>.</p>
+</section>
+
+<section id="glosario">
+    <h2>6. Glosario de Términos</h2>
+
+    <ul>
+        <li><strong>Dominio</strong>: Estructura básica de organización y seguridad de un servicio de directorio.</li>
+        <li><strong>Servicio de Directorio</strong>: Sistema que almacena información sobre los recursos de una red.</li>
+        <li><strong>Controlador de Dominio</strong>: Servidor que gestiona un dominio a través de un servicio de directorio.</li>
+        <li><strong>Catálogo Global</strong>: Base de datos que almacena toda la información de los recursos del dominio.</li>
+        <li><strong>Esquema</strong>: Estructura visual de los recursos u objetos contenidos en un dominio.</li>
+        <li><strong>Objeto</strong>: Elemento contenido en un dominio que representa un recurso.</li>
+        <li><strong>Atributos</strong>: Características que definen un objeto dentro del dominio.</li>
+        <li><strong>Atributos Clave</strong>: Características que definen de manera única un objeto dentro del esquema.</li>
+        <li><strong>Unidad Organizativa (OU)</strong>: Contenedor que facilita la gestión de recursos dentro del dominio.</li>
+        <li><strong>Árbol</strong>: Estructura jerárquica de dominios donde existe un dominio padre y varios dominios hijos.</li>
+        <li><strong>Bosque</strong>: Conjunto de dos o más árboles de dominios.</li>
+        <li><strong>Relación de Confianza Transitiva</strong>: Permite que los usuarios de un dominio accedan a los recursos de otro dominio dentro del mismo bosque.</li>
+        <li><strong>LDAP</strong>: Protocolo de acceso y gestión de servicios de directorio.</li>
+    </ul>
+</section>
+
+<div class="note">
+    <p><strong>Nota:</strong> Este documento es una guía básica para la administración de dominios y servidores. Para más detalles, consulta la documentación oficial de Microsoft y otras fuentes especializadas.</p>
+</div>
+
 </body>
 </html>
