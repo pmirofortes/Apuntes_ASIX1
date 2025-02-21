@@ -18,27 +18,31 @@
             <th>Primeros bits</th>
             <th>Net+Host</th>
             <th>Ejemplo</th>
+            <th>Privadas</th>
             <tbody>
                 <tr>
                     <td>A</td>
                     <td>0 al 127</td>
                     <td>Empieza por 0</td>
-                    <td>N.H.H.H 7/24</td>
+                    <td>N.H.H.H /8</td>
                     <td>11.7.203.4</td>
+                    <td>10.X.X.X</td>
                 </tr>
                 <tr>
                     <td>B</td>
                     <td>128 al 191</td>
                     <td>Empieza por 10</td>
-                    <td>N.N.H.H 14/16</td>
+                    <td>N.N.H.H /16</td>
                     <td>132.10.120.208</td>
+                    <td>172.16.0.0 - 172.31.255.255</td>
                 </tr>
                 <tr>
                     <td>C</td>
                     <td>192 al 223</td>
                     <td>Empieza por 110</td>
-                    <td>N.N.N.H 5/21</td>
+                    <td>N.N.N.H /24</td>
                     <td>198.33.117.42</td>
+                    <td>192.168.X.X</td>
                 </tr>
                 <tr>
                     <td>D</td>
@@ -46,6 +50,7 @@
                     <td>Empieza por 1110</td>
                     <td>/////////////</td>
                     <td>230.7.0.2</td>
+                    <td>/////////////</td>
                 </tr>
                 <tr>
                     <td>E</td>
@@ -53,6 +58,7 @@
                     <td>Empieza por 11110</td>
                     <td>/////////////</td>
                     <td>250.1.1.1</td>
+                    <td>/////////////</td>
                 </tr>
             </tbody>
         </table>
@@ -83,32 +89,18 @@
         <h4>Funciones</h4>
         <p>Identificar que parte de la IP se corresponde con bits de red/subred y que parte con bits de host. Los 1 identifican parte de red y los 0 la parte de host.</p> 
         <p>Dividir una red en subredes.</p>
-        <table border>
-            <th>Clase</th>
-            <th>Máscara por defecto</th>
-            <th>Abrev.</th>
-            <tbody>
-                <tr>
-                    <td>A</td>
-                    <td>255.0.0.0</td>
-                    <td>/8</td>
-                </tr>
-                <tr>
-                    <td>B</td>
-                    <td>255.255.0.0</td>
-                    <td>/16</td>
-                </tr>
-                <tr>
-                    <td>C</td>
-                    <td>255.255.255.0</td>
-                    <td>/24</td>
-                </tr>
-            </tbody>
-        </table>
         <p>Para que una subred se conecte a otra necesitará un router</p>
         <p>Pata que existan subredes <strong>la máscara debe ser mayor</strong> que la máscara por defecto.</p>
-
-
+    </section>
+    <section>
+        <p style="text-align: center; font-weight: bold;">128/64/32/16/8/4/2/1</p>
+        <h3>Calculo de la subred</h3>
+        <ol>
+            <li>Pasar la IP y la máscara a binario.</li>
+            <li>Los bits de host empiezan donde empiezan los 0.</li>
+            <li>ID subred: Asignar los bits de host a 0 en la IP y traducirlo.</li>
+            <li>IP broadcast: Asignar los bits de host a 1 en la IP y traducirlo.</li>
+        </ol>
 
     </section>
     

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuntes de PHP y Formularios</title>
+    <link rel="stylesheet" href="../../Styles/imp_app_web.css">
+    <link rel="icon" href="../../Icons/imp_app_web.ico">
+</head>
+<body>
+    <header>
+        <h1>Apuntes de PHP y Formularios</h1>
+        <nav>
+            <ul>
+                <li><a href="#1">Peticiones</a></li>
+                <li><a href="#2">Variables Superglobales</a></li>
+                <li><a href="#3">Atributo <code>action</code></a></li>
+                <li><a href="#4">Sticky Forms</a></li>
+                <li><a href="#5">Campos Ocultos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <h2 id="1">1. Métodos de Petición</h2>
+        <h3>GET</h3>
+        <p>Los datos se envían por la URL. Es visible y modificable por el usuario.</p>
+        <pre><code>&lt;form method="get"&gt;
+            &lt;input type="text" name="nombre"&gt;
+            &lt;input type="submit"&gt;
+        &lt;/form&gt;</code></pre>
+        <p>URL resultante: <code>http://localhost/?nombre=Paco</code></p>
+
+        <h3>POST</h3>
+        <p>Los datos se envían de manera invisible al usuario. Recomendado para datos sensibles.</p>
+        <pre><code>&lt;form method="post"&gt;
+            &lt;input type="text" name="nombre"&gt;
+            &lt;input type="submit"&gt;
+        &lt;/form&gt;</code></pre>
+
+    <h2 id="2">2. Variables Superglobales</h2>
+        <ul>
+            <li><code>$_GET</code>: Contiene los datos enviados por el método GET.</li>
+            <li><code>$_POST</code>: Contiene los datos enviados por el método POST.</li>
+            <li><code>$_REQUEST</code>: Contiene los datos enviados tanto por GET como por POST.</li>
+            <li><code>isset()</code>: Función que verifica si una variable está definida y no es nula.</li>
+        </ul>
+        <pre><code>$nombre = isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : '';</code></pre>
+
+    <h2 id="3">3. Atributo <code>action</code> en Formularios</h2>
+        <p>El atributo <code>action</code> en la etiqueta <code>&lt;form&gt;</code> especifica a qué URL se enviarán los datos.</p>
+        <p>Si no se especifica, los datos se envían a la misma página.</p>
+        <pre><code>&lt;form method="post" action="login.php"&gt;
+            &lt;input type="text" name="nombre"&gt;
+            &lt;input type="submit"&gt;
+        &lt;/form&gt;</code></pre>
+
+    <h2 id="4">4. Conservar Datos del Formulario (Sticky Forms)</h2>
+        <p>Para evitar que los datos se pierdan al refrescar la página, se puede rellenar el campo con el valor anterior usando <code>isset()</code>.</p>
+        <pre><code>&lt;input type="text" name="nombre" value="&lt;?php echo isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : ''; ?&gt;"&gt;</code></pre>
+
+    <h2 id="5">5. Campos Ocultos (<code>hidden</code>)</h2>
+        <p>Los campos ocultos permiten enviar información que no es visible para el usuario.</p>
+        <pre><code>&lt;form&gt;
+            &lt;input type="hidden" name="maquina-enigma" value="149"&gt;
+            &lt;input type="submit"&gt;
+        &lt;/form&gt;</code></pre>
+        <p>También se pueden enviar arrays:</p>
+        <pre><code>&lt;form&gt;
+            &lt;input type="hidden" name="filtros[]" value="precio"&gt;
+            &lt;input type="hidden" name="filtros[]" value="valoracion"&gt;
+            &lt;input type="submit"&gt;
+        &lt;/form&gt;</code></pre>
+
+    <!-- <h2>8. Serialización y JSON</h2>
+        <h3>Serialización</h3>
+        <p>Convierte arrays en texto para enviarlos en formularios.</p>
+        <pre><code>echo serialize(['precio', 'valoracion', 'fecha']);</code></pre>
+
+        <h3>JSON</h3>
+        <p>Formato estándar para enviar estructuras de datos.</p>
+        <pre><code>echo json_encode(['id' => 234, 'nombre' => 'Sauron']);</code></pre>
+        <p>Ejemplo de uso en formularios:</p>
+        <pre><code>&lt;form&gt;
+            &lt;input type="hidden" name="filtros" value='&lt;?= json_encode(['precio', 'valoracion', 'fecha']); ?&gt;'&gt;
+            &lt;input type="submit"&gt;
+        &lt;/form&gt;</code></pre>
+
+    <h2>9. Consideraciones de Seguridad</h2>
+    <div class="note">
+        <p><strong>Serialización</strong>: No es seguro recibir datos serializados de un cliente, ya que pueden ser manipulados. Es preferible usar JSON.</p>
+        <p><strong>JSON</strong>: Es más seguro y limitado en cuanto a los tipos de datos que se pueden enviar.</p>
+    </div> -->
+</body>
+</html>
